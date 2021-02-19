@@ -1,5 +1,5 @@
 {
-    "baseUrl": "/doxybook_output/",
+    "baseUrl": "",
     "indexInFolders": true,
     "linkSuffix": "/",
     "linkLowercase": true,
