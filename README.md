@@ -8,4 +8,4 @@ Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run `doxygen D
 
 ## Better visuals, better documentation
 
-For better visuals, run `doxybook2 --input xml/ --output doxybook2_output`
+For better visuals, run `./doxybook2 --input xml/ --output doxybook_output --config .doxybook/config.json`
