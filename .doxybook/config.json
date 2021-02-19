@@ -3,12 +3,12 @@
     "indexInFolders": true,
     "linkSuffix": "/",
     "linkLowercase": true,
-    "indexClassesName": "index",
-    "indexFilesName": "index",
-    "indexGroupsName": "index",
-    "indexNamespacesName": "index",
-    "indexRelatedPagesName": "index",
-    "indexExamplesName": "index",
+    "indexClassesName": "_index",
+    "indexFilesName": "_index",
+    "indexGroupsName": "_index",
+    "indexNamespacesName": "_index",
+    "indexRelatedPagesName": "_index",
+    "indexExamplesName": "_index",
     "mainPageInRoot": true,
-    "mainPageName": "index"
+    "mainPageName": "_index"
 }

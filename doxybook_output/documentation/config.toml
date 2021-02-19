@@ -1,0 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Ingineria Programarii"
+theme = "hugo-theme-learn"
