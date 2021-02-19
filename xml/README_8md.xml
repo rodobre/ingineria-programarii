@@ -17,7 +17,8 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Better<sp/>visuals,<sp/>better<sp/>documentation</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">For<sp/>better<sp/>visuals,<sp/>run<sp/>`./doxybook2<sp/>--input<sp/>xml/<sp/>--output<sp/>doxybook_output<sp/>--config<sp/>.doxybook/config.json`</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>better<sp/>visuals,<sp/>install<sp/>`hugo`<sp/>and<sp/>run<sp/>`./doxybook2<sp/>--input<sp/>xml/<sp/>--output<sp/>doxybook_output/documentation/content<sp/>--config<sp/>.doxybook/config.json<sp/>--templates<sp/>.doxybook/templates/`.</highlight></codeline>
+<codeline><highlight class="normal">The,<sp/>navigate<sp/>to<sp/>documentation<sp/>using<sp/>`cd<sp/>doxybook_output/documentation`<sp/>and<sp/>run<sp/>`hugo<sp/>serve`.</highlight></codeline>
     </programlisting>
     <location file="README.md"/>
   </compounddef>

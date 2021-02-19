@@ -66,7 +66,7 @@ $(function() {
 <h2>Building</h2>
 <p>Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run <code>doxygen Doxyfile</code> to regenerate documentation</p>
 <h2>Better visuals, better documentation</h2>
-<p>For better visuals, run <code>./doxybook2 --input xml/ --output doxybook_output --config .doxybook/config.json</code> </p>
+<p>For better visuals, install <code>hugo</code> and run <code>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</code>. The, navigate to documentation using <code>cd doxybook_output/documentation</code> and run <code>hugo serve</code>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

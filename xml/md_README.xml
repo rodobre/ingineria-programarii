@@ -6,6 +6,6 @@
     <detaileddescription>
 <para>Install apt packages with the versioning provided in <computeroutput>system_requirements.MD</computeroutput></para><para><heading level="2">Building</heading>
 </para><para>Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run <computeroutput>doxygen Doxyfile</computeroutput> to regenerate documentation</para><para><heading level="2">Better visuals, better documentation</heading>
-</para><para>For better visuals, run <computeroutput>./doxybook2 --input xml/ --output doxybook_output --config .doxybook/config.json</computeroutput> </para>    </detaileddescription>
+</para><para>For better visuals, install <computeroutput>hugo</computeroutput> and run <computeroutput>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</computeroutput>. The, navigate to documentation using <computeroutput>cd doxybook_output/documentation</computeroutput> and run <computeroutput>hugo serve</computeroutput>. </para>    </detaileddescription>
   </compounddef>
 </doxygen>

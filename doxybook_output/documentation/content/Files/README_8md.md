@@ -21,10 +21,11 @@ Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run `doxygen D
 
 ## Better visuals, better documentation
 
-For better visuals, run `./doxybook2 --input xml/ --output doxybook_output --config .doxybook/config.json`
+For better visuals, install `hugo` and run `./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/`.
+The, navigate to documentation using `cd doxybook_output/documentation` and run `hugo serve`.
 ```
 
 
 -------------------------------
 
-Updated on 19 February 2021 at 14:53:36 UTC
+Updated on 19 February 2021 at 15:01:49 UTC
