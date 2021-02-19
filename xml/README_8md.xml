@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">##<sp/>Dependencies</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Install<sp/>apt<sp/>packages<sp/>with<sp/>the<sp/>versioning<sp/>provided<sp/>in<sp/>`system_requirements.MD`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Build<sp/>by<sp/>executing<sp/>build.sh<sp/>on<sp/>Linux<sp/>(Debian/Ubuntu/CentOS<sp/>RHEL),<sp/>run<sp/>`doxygen<sp/>Doxyfile`<sp/>to<sp/>regenerate<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Better<sp/>visuals,<sp/>better<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>better<sp/>visuals,<sp/>run<sp/>`./doxybook2<sp/>--input<sp/>xml/<sp/>--output<sp/>doxybook_output<sp/>--config<sp/>.doxybook/config.json`</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

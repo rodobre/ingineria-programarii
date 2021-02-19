@@ -1,14 +1,14 @@
 {
-    "baseUrl": ".doxybook/hugo-theme-learn/",
+    "baseUrl": "/doxybook_output/",
     "indexInFolders": true,
     "linkSuffix": "/",
     "linkLowercase": true,
-    "indexClassesName": "_index",
-    "indexFilesName": "_index",
-    "indexGroupsName": "_index",
-    "indexNamespacesName": "_index",
-    "indexRelatedPagesName": "_index",
-    "indexExamplesName": "_index",
+    "indexClassesName": "index",
+    "indexFilesName": "index",
+    "indexGroupsName": "index",
+    "indexNamespacesName": "index",
+    "indexRelatedPagesName": "index",
+    "indexExamplesName": "index",
     "mainPageInRoot": true,
-    "mainPageName": "_index"
+    "mainPageName": "index"
 }

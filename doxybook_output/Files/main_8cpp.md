@@ -1,16 +1,15 @@
 ---
 title: main.cpp
-summary: This file is marvelous. 
+summary: Driver program for the project, exposes an HTTP server on port 8080 to handle API requests.  
 
 ---
 
-# main.cpp
-
-This file is marvelous. ## Functions
+**main.cpp File Reference**
+Driver program for the project, exposes an HTTP server on port 8080 to handle API requests. ## Functions
 
 |                | Name           |
 | -------------- | -------------- |
-| int | **[main](.doxybook/hugo-theme-learn/files/main_8cpp/#function-main)**(void )<br>Main driver function of the program, runs an HTTP server on port 8080 to process incoming requests (blocking!)  |
+| int | **[main](/doxybook_output/files/main_8cpp/#function-main)**(void )<br>Main driver function of the program, runs an HTTP server on port 8080 to process incoming requests (blocking!)  |
 
 
 ## Functions Documentation
@@ -35,6 +34,7 @@ Main driver function of the program, runs an HTTP server on port 8080 to process
 
 #include <iostream>
 #include "include/httplib/httplib.h"
+#include "include/nlohmann/json.hpp"
 
 int main(void) {
   httplib::Server svr;
@@ -51,4 +51,4 @@ int main(void) {
 
 -------------------------------
 
-Updated on 19 February 2021 at 14:15:25 UTC
+Updated on 19 February 2021 at 14:30:59 UTC

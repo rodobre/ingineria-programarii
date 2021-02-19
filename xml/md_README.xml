@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="md_README" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>Dependencies</title>
+    <detaileddescription>
+<para>Install apt packages with the versioning provided in <computeroutput>system_requirements.MD</computeroutput></para><para><heading level="2">Building</heading>
+</para><para>Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run <computeroutput>doxygen Doxyfile</computeroutput> to regenerate documentation</para><para><heading level="2">Better visuals, better documentation</heading>
+</para><para>For better visuals, run <computeroutput>./doxybook2 --input xml/ --output doxybook_output --config .doxybook/config.json</computeroutput> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

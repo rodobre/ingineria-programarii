@@ -37,12 +37,39 @@
     <includes local="no">string</includes>
     <includes local="no">sys/stat.h</includes>
     <includes local="no">thread</includes>
+    <includes local="yes">include/nlohmann/json.hpp</includes>
+    <includes local="no">cstddef</includes>
+    <includes local="no">initializer_list</includes>
+    <includes local="no">iosfwd</includes>
+    <includes local="no">iterator</includes>
+    <includes local="no">numeric</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">forward_list</includes>
+    <includes local="no">tuple</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">valarray</includes>
+    <includes local="no">exception</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">limits</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">istream</includes>
+    <includes local="no">clocale</includes>
+    <includes local="no">ios</includes>
+    <includes local="no">ostream</includes>
     <incdepgraph>
       <node id="34">
         <label>sys/stat.h</label>
       </node>
       <node id="26">
         <label>list</label>
+      </node>
+      <node id="48">
+        <label>valarray</label>
       </node>
       <node id="16">
         <label>atomic</label>
@@ -62,14 +89,35 @@
       <node id="24">
         <label>functional</label>
       </node>
+      <node id="53">
+        <label>limits</label>
+      </node>
+      <node id="40">
+        <label>iterator</label>
+      </node>
+      <node id="51">
+        <label>cstdint</label>
+      </node>
+      <node id="36">
+        <label>include/nlohmann/json.hpp</label>
+      </node>
+      <node id="54">
+        <label>cmath</label>
+      </node>
       <node id="21">
         <label>errno.h</label>
       </node>
       <node id="17">
         <label>cassert</label>
       </node>
+      <node id="50">
+        <label>stdexcept</label>
+      </node>
       <node id="22">
         <label>fcntl.h</label>
+      </node>
+      <node id="41">
+        <label>numeric</label>
       </node>
       <node id="33">
         <label>string</label>
@@ -80,11 +128,17 @@
       <node id="31">
         <label>regex</label>
       </node>
+      <node id="49">
+        <label>exception</label>
+      </node>
       <node id="23">
         <label>fstream</label>
       </node>
       <node id="6">
         <label>netdb.h</label>
+      </node>
+      <node id="59">
+        <label>ostream</label>
       </node>
       <node id="0">
         <label>main.cpp</label>
@@ -159,6 +213,54 @@
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>ifaddrs.h</label>
@@ -175,8 +277,23 @@
       <node id="10">
         <label>pthread.h</label>
       </node>
+      <node id="58">
+        <label>ios</label>
+      </node>
+      <node id="55">
+        <label>cstdio</label>
+      </node>
+      <node id="45">
+        <label>tuple</label>
+      </node>
       <node id="13">
         <label>unistd.h</label>
+      </node>
+      <node id="43">
+        <label>vector</label>
+      </node>
+      <node id="42">
+        <label>utility</label>
       </node>
       <node id="15">
         <label>array</label>
@@ -184,11 +301,26 @@
       <node id="32">
         <label>sstream</label>
       </node>
+      <node id="39">
+        <label>iosfwd</label>
+      </node>
+      <node id="52">
+        <label>cstdlib</label>
+      </node>
+      <node id="57">
+        <label>clocale</label>
+      </node>
       <node id="18">
         <label>cctype</label>
       </node>
       <node id="1">
         <label>iostream</label>
+      </node>
+      <node id="37">
+        <label>cstddef</label>
+      </node>
+      <node id="47">
+        <label>unordered_map</label>
       </node>
       <node id="2">
         <label>include/httplib/httplib.h</label>
@@ -208,6 +340,12 @@
       <node id="35">
         <label>thread</label>
       </node>
+      <node id="46">
+        <label>type_traits</label>
+      </node>
+      <node id="44">
+        <label>forward_list</label>
+      </node>
       <node id="14">
         <label>algorithm</label>
       </node>
@@ -216,6 +354,12 @@
       </node>
       <node id="28">
         <label>memory</label>
+      </node>
+      <node id="56">
+        <label>istream</label>
+      </node>
+      <node id="38">
+        <label>initializer_list</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -234,28 +378,29 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.cpp" line="14" column="1" bodyfile="main.cpp" bodystart="14" bodyend="23"/>
+        <location file="main.cpp" line="15" column="1" bodyfile="main.cpp" bodystart="15" bodyend="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>This file is marvelous. </para>    </briefdescription>
+<para>Driver program for the project, exposes an HTTP server on port 8080 to handle API requests. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
 <codeline lineno="6"><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;include/httplib/httplib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/>httplib::Server<sp/>svr;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/>svr.Get(</highlight><highlight class="stringliteral">&quot;/hi&quot;</highlight><highlight class="normal">,<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;,<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;res)<sp/>{</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>res.set_content(</highlight><highlight class="stringliteral">&quot;Hello<sp/>World!&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;start<sp/>server...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>svr.listen(</highlight><highlight class="stringliteral">&quot;0.0.0.0&quot;</highlight><highlight class="normal">,<sp/>8080);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;include/nlohmann/json.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>httplib::Server<sp/>svr;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>svr.Get(</highlight><highlight class="stringliteral">&quot;/hi&quot;</highlight><highlight class="normal">,<sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;,<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;res)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>res.set_content(</highlight><highlight class="stringliteral">&quot;Hello<sp/>World!&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;start<sp/>server...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>svr.listen(</highlight><highlight class="stringliteral">&quot;0.0.0.0&quot;</highlight><highlight class="normal">,<sp/>8080);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="main.cpp"/>
   </compounddef>
