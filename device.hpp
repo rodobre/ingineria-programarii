@@ -20,12 +20,12 @@ using AppContextPtr = std::unique_ptr<AppContext, AppContextDeleter>;
  */
 class AppContext
 {
-    static AppContextPtr instance;
-
-public:
     AppContext() = default;
     ~AppContext() = default;
 
+public:
+    static AppContextPtr instance;
+    
     static AppContextPtr& getInstance()
     {
         if(!instance)

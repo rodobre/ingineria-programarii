@@ -132,7 +132,7 @@ public:
 
     virtual ~BaseInputContext() = default;
     virtual
-        std::tuple<AppParameters, std::vector<LEDContext>>
+        std::tuple<AppParameters&, std::vector<LEDContext>&>
         Process(AppParameters& parameters, std::vector<LEDContext>& led_vector) = 0;
 };
 
@@ -141,10 +141,10 @@ public:
  */
 class UserManualInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
 
@@ -154,10 +154,10 @@ class UserManualInputContext : public BaseInputContext
  */
 class UserProgrammableInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
 
@@ -167,10 +167,10 @@ class UserProgrammableInputContext : public BaseInputContext
  */
 class DisplayInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
 
@@ -180,10 +180,10 @@ class DisplayInputContext : public BaseInputContext
  */
 class MusicInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
 
@@ -193,10 +193,10 @@ class MusicInputContext : public BaseInputContext
  */
 class BrightnessInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
 
@@ -205,9 +205,9 @@ class BrightnessInputContext : public BaseInputContext
  */
 class RandomInputContext : public BaseInputContext
 {
-    std::tuple<AppParameters, std::vector<LEDContext>>
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process(AppParameters& parameters, std::vector<LEDContext>& led_vector)
     {
-        return {};
+        return std::tie(parameters, led_vector);
     }
 };
