@@ -23,8 +23,9 @@ class AppContext
     AppContext() = default;
     ~AppContext() = default;
 
-public:
     static AppContextPtr instance;
+
+public:
     
     static AppContextPtr& getInstance()
     {
