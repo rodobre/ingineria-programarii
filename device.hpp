@@ -84,11 +84,13 @@ class AppContext
      */
     ~AppContext() = default;
 
-public:
-
     /**
      * @brief Static singleton instance getter
      */
+    static AppContextPtr instance;
+
+public:
+    
     static AppContextPtr& getInstance()
     {
         if(!instance)
