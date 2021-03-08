@@ -7,7 +7,7 @@
 #include <cstdio>
 #include <string>
 #include <stdexcept>
-// #include "device.hpp"
+#include "device.hpp"
 #include "include/httplib/httplib.h"
 #include "include/nlohmann/json.hpp"
 
