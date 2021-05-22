@@ -1,9 +1,10 @@
+#include <tuple>
 #include <cstdio>
 #include <memory>
-#include <functional>
 #include <vector>
 #include <utility>
-#include <tuple>
+#include <iostream>
+#include <functional>
 
 /**
  * @brief RGB data structure
@@ -35,6 +36,18 @@ public:
         g(rgb.g),
         b(rgb.b)
     {}
+
+    unsigned char getRed() {
+        return r;
+    }
+
+    unsigned char getGreen() {
+        return g;
+    }
+
+    unsigned char getBlue() {
+        return b;
+    }
 };
 
 /**
@@ -55,11 +68,24 @@ public:
     {
     }
 
-    LEDContext(const LEDContext& led_context) :
+    LEDContext(unsigned char intensity, RGB rgb, bool visible)
+        :
+        intensity(intensity),
+        rgb(rgb),
+        visible(visible)
+    {
+    }
+
+    LEDContext(const LEDContext& led_context) 
+        :
         intensity(led_context.intensity),
         rgb(led_context.rgb),
         visible(led_context.visible)
     {
+    }
+
+    RGB getRGB() {
+        return rgb;
     }
 };
 
@@ -85,6 +111,18 @@ enum class InputTypes
 struct AppParameters
 {
     std::string DeviceName;
+
+    AppParameters()
+        :
+        DeviceName("Default name")
+    {
+    }
+
+    AppParameters(std::string DeviceName)
+        :
+        DeviceName(DeviceName)
+    {
+    }
 };
 
 /**
@@ -106,6 +144,16 @@ public:
         input_type(InputTypes::UnassignedInput),
         active(false)
     {
+    }
+
+    BaseInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, InputTypes input_type, bool active)
+        : 
+        parameters(parameters),
+        led_vector(std::move(led_vector)),
+        input_type(input_type),
+        active(false)
+    {
+
     }
 
     BaseInputContext(BaseInputContext& other)
@@ -203,6 +251,19 @@ public:
  */
 class UserManualInputContext : public BaseInputContext
 {
+public:
+
+    UserManualInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::UserManualInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -216,6 +277,19 @@ class UserManualInputContext : public BaseInputContext
  */
 class UserProgrammableInputContext : public BaseInputContext
 {
+public:
+
+    UserProgrammableInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::UserProgrammableInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -229,6 +303,19 @@ class UserProgrammableInputContext : public BaseInputContext
  */
 class DisplayInputContext : public BaseInputContext
 {
+public:
+
+    DisplayInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::DisplayInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -242,6 +329,46 @@ class DisplayInputContext : public BaseInputContext
  */
 class MusicInputContext : public BaseInputContext
 {
+public:
+
+    MusicInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::MusicInput,
+            active
+        )
+    {
+    }
+
+    std::tuple<AppParameters&, std::vector<LEDContext>&>
+    Process()
+    {
+        std::cout << led_vector[0].getRGB().getBlue() << std::endl;
+        return std::tie(parameters, led_vector);
+    }
+};
+
+
+/**
+ * @brief Input context class for weather input
+ */
+class WeatherInputContext : public BaseInputContext
+{
+public:
+
+    WeatherInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::MusicInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -255,6 +382,19 @@ class MusicInputContext : public BaseInputContext
  */
 class BrightnessInputContext : public BaseInputContext
 {
+public:
+
+    BrightnessInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::BrightnessInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -267,6 +407,19 @@ class BrightnessInputContext : public BaseInputContext
  */
 class RandomInputContext : public BaseInputContext
 {
+public:
+
+    RandomInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+        : 
+        BaseInputContext(
+            parameters,
+            std::move(led_vector),
+            InputTypes::RandomInput,
+            active
+        )
+    {
+    }
+
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
@@ -274,5 +427,5 @@ class RandomInputContext : public BaseInputContext
     }
 };
 
-using BaseInputContextDeleter = std::function<void(void*)>;
-using BaseInputContextPtr = std::unique_ptr<BaseInputContext, BaseInputContextDeleter>; 
+// using BaseInputContextDeleter = std::function<void(void*)>;
+// using BaseInputContextPtr = std::unique_ptr<BaseInputContext, BaseInputContextDeleter>; 

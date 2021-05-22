@@ -31,9 +31,56 @@ const std::set< std::string > InputType = {
     "RandomInput"
 };
 
+BaseInputContext&& buildContext(nlohmann::json requestJson, std::string requestType) {
+    
+    AppParameters parameters("testing device name");
+    std::vector<LEDContext> tmpLedValues;
+    for (nlohmann::json& led: requestJson) {
+        tmpLedValues.push_back(
+            LEDContext(
+                led["intensity"], 
+                RGB(led["r"], led["g"], led["b"]), 
+                true
+            )
+        );
+    }
+
+    if (requestType == "UserManualInput") {
+        UserManualInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "UserProgrammableInput") {
+        UserProgrammableInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "DisplayInput") {
+        DisplayInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "MusicInput") {
+        std::cout<<"entering music"<<std::endl;
+        MusicInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "WeatherInput") {
+        WeatherInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "BrightnessInput") {
+        BrightnessInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    else if(requestType == "RandomInput") {
+        RandomInputContext tmp(parameters, std::move(tmpLedValues), true);
+        return std::move(dynamic_cast<BaseInputContext&>(tmp));
+    }
+    
+    // No possible invalid type because of previous filtering....
+}
+
 /**
- * @brief Main driver function of the program, runs an HTTP server on port 8080 to process incoming requests (blocking!)
- * 
+ * @brief Main driver function of the program, runs an HTTP 
+ * server on port 8080 to process incoming requests (blocking!)
  * @return int - status code
  */
 int main(void) {
@@ -46,7 +93,7 @@ int main(void) {
     auto& ctx = AppContext::getInstance();
     /* Static folder handling */
     auto ret = svr.set_mount_point("/static", "./static");
-    
+    ctx->StartProcessingInputs();
     /* Route to get reached by the IoT device */
     svr.Post("/iot", [&](const Request& req, Response& res) {
         
@@ -64,8 +111,10 @@ int main(void) {
                 const json requestSettings = requestJson[INPUT_SETTINGS_KEY];
                 
                 if (InputType.find(requestType) != InputType.end()) {
-                    // TODO: push json to the context instance
-                    response[OUTPUT_VALID_KEY] = true;
+                    // Pushing json to the context instance                    
+                    ctx->AddInput(buildContext(requestJson[INPUT_KEY], requestType));
+
+                    response[OUTPUT_VALID_KEY] = requestJson[INPUT_KEY];
                 } else {
                     throw std::runtime_error(INVALID_REQUEST_BODY);
                 }
@@ -82,7 +131,7 @@ int main(void) {
         res.set_content("Hello World!", "text/plain");
     });
 
-    printf("start server...\n");
+    printf("Listening on port 8080...\n");
     svr.listen("0.0.0.0", 8080);
 }
 
@@ -92,5 +141,13 @@ Example request:
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{"input_type":"MusicInput","input":[12, 43, 1, 43, 54],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+*/
+
+/*
+Example request:
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"MusicInput","input":[{"r":12,"g":34,"b":123,"intensity":1},{"r":12,"g":34,"b":123,"intensity":1},{"r":12,"g":34,"b":123,"intensity":1},{"r":12,"g":34,"b":123,"intensity":1}],"input_settings":"{}"}' \
          http://localhost:8080/iot
 */

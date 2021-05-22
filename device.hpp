@@ -32,11 +32,13 @@ class AppContext
     /**
      * @brief Priority queue used for storage of inputs with highest priority
      */
+    using BaseInputContextRef = std::reference_wrapper<BaseInputContext>;
+    using BaseInputContextRefVector = std::vector<BaseInputContextRef>;
     std::priority_queue
         <
-        BaseInputContextPtr,
-        std::vector<BaseInputContextPtr>,
-        std::function<bool(const BaseInputContextPtr&, const BaseInputContextPtr&)>
+        BaseInputContextRef,
+        BaseInputContextRefVector,
+        std::function<bool(const BaseInputContext&, const BaseInputContext&)>
         > input_queue;
     
     /**
@@ -71,9 +73,9 @@ class AppContext
         :
         input_queue
         (
-            [] (const BaseInputContextPtr& a, const BaseInputContextPtr& b) -> bool
+            [] (const BaseInputContext& a, const BaseInputContext& b) -> bool
             {
-                return a->GetInputType() < b->GetInputType();
+                return a.GetInputType() < b.GetInputType();
             }
         ),
         context_active(false)
@@ -83,11 +85,6 @@ class AppContext
      * @brief Default destructor
      */
     ~AppContext() = default;
-
-    /**
-     * @brief Static singleton instance getter
-     */
-    static AppContextPtr instance;
 
 public:
     
@@ -114,15 +111,15 @@ public:
     /**
      * @brief Enqueue an item in to the priority queue, comparison done via custom functor
      */
-    void AddInput(BaseInputContextPtr&& input_ptr)
+    void AddInput(BaseInputContext&& input_ptr)
     {
-        input_queue.push(std::move(input_ptr));
+        input_queue.push(input_ptr);
     }
 
     /**
      * @brief Peek the top of the queue
      */
-    const BaseInputContextPtr& TopQueue()
+    BaseInputContext& TopQueue()
     {
         return input_queue.top();
     }
@@ -142,17 +139,13 @@ public:
     {
         if(this->input_queue.empty())
         {
+            // std::cout << "dam return" << std::endl;
             return;
         }
+        // std::cout << "NU dam return" << std::endl;
+        auto& input_processor = this->TopQueue();
 
-        const auto& input_processor = this->TopQueue();
-
-        if(!input_processor)
-        {
-            return;
-        }
-
-        auto [parameters, led_vector] = input_processor->Process();
+        auto [parameters, led_vector] = input_processor.Process();
         this->PublishChangesToDevice(parameters, led_vector);
     }
 
@@ -176,14 +169,23 @@ public:
     void StartProcessingInputs()
     {
         context_active.store(true);
-        std::async(std::launch::async, [this] () -> void
+        std::thread t1([] (AppContext * ptr) -> void
         {
-            while(this->context_active.load())
+            while(ptr->context_active.load())
             {
-                this->ProcessQueue();
-                std::this_thread::sleep_for(std::chrono::milliseconds(this->sleep_interval));
+                ptr->ProcessQueue();
+                std::this_thread::sleep_for(std::chrono::milliseconds(ptr->sleep_interval));
             }
-        });
+        }, this);
+        t1.detach();
+        // std::async(std::launch::async, [this] () -> void
+        // {
+        //     while(this->context_active.load())
+        //     {
+        //         this->ProcessQueue();
+        //         std::this_thread::sleep_for(std::chrono::milliseconds(this->sleep_interval));
+        //     }
+        // });
     }
 
     /**
