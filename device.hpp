@@ -1,3 +1,6 @@
+#define NEW_INPUT "new_input_added"
+#define POP_INPUT "top_input_popped"
+
 #include <cstdio>
 #include <string>
 #include <vector>
@@ -8,8 +11,9 @@
 #include <atomic>
 #include <thread>
 #include <future>
-#include "include/nlohmann/json.hpp"
 #include "inputcontext.hpp"
+#include "include/nlohmann/json.hpp"
+#include "include/httplib/httplib.h"
 
 class AppContext;
 
@@ -120,10 +124,24 @@ public:
     }
 
     /**
+     * @brief Sends a request with metadata to a third party
+     */
+    static void publishToThirdParty(std::string message) 
+    {
+        std::cout << "getting to publish changes" << std::endl;
+        httplib::Client cli("http://cpp-httplib-server.yhirose.repl.co");
+        auto res = cli.Post("/post", message, "text/plain");
+        std::cout << "after publishing changes" << std::endl;
+    }
+
+    /**
      * @brief Enqueue an item in to the priority queue, comparison done via custom functor
      */
     void AddInput(BaseInputContextPtr&& input_ptr)
     {
+        std::thread pushMetadataAdd(publishToThirdParty, NEW_INPUT);
+        pushMetadataAdd.detach();
+
         input_queue.push(std::move(input_ptr));
     }
 
@@ -145,6 +163,8 @@ public:
             return;
         }
 
+        std::thread pushMetadataPop(publishToThirdParty, POP_INPUT);
+        pushMetadataPop.detach();
         input_queue.pop();
     }
 
@@ -155,7 +175,6 @@ public:
     {
         if(this->input_queue.empty())
         {
-            // std::cout << "dam return" << std::endl;
             return;
         }
 
@@ -186,7 +205,7 @@ public:
     void StartProcessingInputs()
     {
         context_active.store(true);
-        std::thread t1([] (AppContext * ptr) -> void
+        std::thread input_lookup_t([] (AppContext * ptr) -> void
         {
             while(ptr->context_active.load())
             {
@@ -194,15 +213,7 @@ public:
                 std::this_thread::sleep_for(std::chrono::milliseconds(ptr->sleep_interval));
             }
         }, this);
-        t1.detach();
-        // std::async(std::launch::async, [this] () -> void
-        // {
-        //     while(this->context_active.load())
-        //     {
-        //         this->ProcessQueue();
-        //         std::this_thread::sleep_for(std::chrono::milliseconds(this->sleep_interval));
-        //     }
-        // });
+        input_lookup_t.detach();
     }
 
     /**
@@ -241,16 +252,6 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
                     )
                 ), 
                 true
-            )
-        );
-    }
-    else if(requestType == "UserProgrammableInput") {
-        /*
-            TBD
-        */
-        tmp = dynamic_cast<BaseInputContext*>(
-            new UserProgrammableInputContext(
-                parameters, std::move(tmpLedValues), true
             )
         );
     }

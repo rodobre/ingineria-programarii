@@ -17,8 +17,8 @@
 #include <string>
 #include <stdexcept>
 #include "device.hpp"
-#include "include/httplib/httplib.h"
-#include "include/nlohmann/json.hpp"
+// #include "include/httplib/httplib.h"
+// #include "include/nlohmann/json.hpp"
 
 const std::set< std::string > InputType = { 
     "UserManualInput", 
