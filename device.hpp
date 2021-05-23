@@ -140,7 +140,7 @@ public:
     void PopInput()
     {
         // if (this->input_queue.empty()) {
-            
+
         // }
         input_queue.pop();
     }
@@ -215,3 +215,127 @@ public:
 
 // Static instantiation
 AppContextPtr AppContext::instance = nullptr;
+
+BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string requestType) {
+    
+    AppParameters parameters("testing device name");
+    std::vector<LEDContext> tmpLedValues;
+    
+    BaseInputContext * tmp = nullptr;
+
+    // No possible invalid type because of previous filtering....
+    if (requestType == "UserManualInput") {
+        /*
+            { color: LEDContext (not array) }
+        */
+        nlohmann::json& led = requestJson;        
+        tmp = dynamic_cast<BaseInputContext*>(
+            new UserManualInputContext(
+                parameters, 
+                UserManualData(
+                    LEDContext(
+                        led["intensity"], 
+                        RGB(led["r"], led["g"], led["b"]), 
+                        true
+                    )
+                ), 
+                true
+            )
+        );
+    }
+    else if(requestType == "UserProgrammableInput") {
+        /*
+            TBD
+        */
+        tmp = dynamic_cast<BaseInputContext*>(
+            new UserProgrammableInputContext(
+                parameters, std::move(tmpLedValues), true
+            )
+        );
+    }
+    else if(requestType == "DisplayInput") {
+        /*
+            { rgb: RGB }
+        */
+        for (nlohmann::json& led: requestJson) {
+            tmpLedValues.push_back(
+                LEDContext(
+                    led["intensity"], 
+                    RGB(led["r"], led["g"], led["b"]), 
+                    true
+                )
+            );
+        }
+        tmp = dynamic_cast<BaseInputContext*>(
+            new DisplayInputContext(
+                parameters, std::move(tmpLedValues), true
+            )
+        );
+    }
+    else if(requestType == "MusicInput") {
+        /*
+            { frequency: double }
+        */
+        std::vector<double> frequencyVector;
+
+        for (nlohmann::json& data: requestJson) {
+            frequencyVector.push_back(
+                (double) data["frequency"]
+            );
+        }
+
+        tmp = dynamic_cast<BaseInputContext*>(
+            new MusicInputContext(
+                parameters, 
+                MusicData(std::move(frequencyVector)), 
+                true
+            )
+        );
+    }
+    else if(requestType == "WeatherInput") {
+        /*
+            { temperature: float }
+        */
+        float temperature = requestJson["temperature"];
+        tmp = dynamic_cast<BaseInputContext*>(
+            new WeatherInputContext(
+                parameters, 
+                WeatherData(temperature), 
+                true
+            )
+        );
+    }
+    else if(requestType == "BrightnessInput") {
+        /*
+            { intensity: unsigned char }
+        */
+        std::vector<unsigned char> intensityVector;
+
+        for (nlohmann::json& data: requestJson) {
+            intensityVector.push_back(
+                (unsigned char) data["intensity"]
+            );
+        }
+
+        tmp = dynamic_cast<BaseInputContext*>(
+            new BrightnessInputContext(
+                parameters, 
+                BrightnessData(std::move(intensityVector)), 
+                true
+            )
+        );
+    }
+    else if(requestType == "RandomInput") {
+        /*
+            empty
+        */
+        tmp = dynamic_cast<BaseInputContext*>(
+            new RandomInputContext(
+                parameters, true
+            )
+        );
+    }
+    
+    BaseInputContextPtr smartPtr(tmp);
+    return smartPtr;
+}
