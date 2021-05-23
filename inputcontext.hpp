@@ -335,6 +335,9 @@ public:
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
+        std::cout << (int) userManualData.led.getRGB().getRed()   << ' ' << 
+                     (int) userManualData.led.getRGB().getGreen() << ' ' <<
+                     (int) userManualData.led.getRGB().getBlue()  << std::endl;
         return std::tie(parameters, led_vector);
     }
 };
@@ -420,13 +423,14 @@ public:
     Process()
     {
         for (auto& frequency: musicData.frequencyVector) {
-            this->led_vector.push_back(
-                LEDContext(
-                    frequency, 
-                    RGB(1, 1, 1), 
-                    true
-                )
-            );
+            // this->led_vector.push_back(
+            //     LEDContext(
+            //         frequency, 
+            //         RGB(1, 1, 1), 
+            //         true
+            //     )
+            // );
+            std::cout << "frequency: " << frequency << std::endl;
         }
 
         for (auto& led: led_vector) {
@@ -464,19 +468,15 @@ public:
     Process()
     {
         // TODO: to be removed
-        this->led_vector.push_back(
-            LEDContext(
-                0, 
-                RGB(1, 1, 1), 
-                true
-            )
-        );
+        // this->led_vector.push_back(
+        //     LEDContext(
+        //         0, 
+        //         RGB(1, 1, 1), 
+        //         true
+        //     )
+        // );
 
-        for (auto& led: led_vector) {
-            std::cout << (int) led.getRGB().getRed()   << ' ' << 
-                         (int) led.getRGB().getGreen() << ' ' <<
-                         (int) led.getRGB().getBlue()  << std::endl;
-        }
+        std::cout << "temperature: " << this->weatherData.temperature << std::endl;
         return std::tie(parameters, led_vector);
     }
 };
@@ -504,6 +504,16 @@ public:
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
+        for (auto& intensity: brightnessData.intensityVector) {
+            // this->led_vector.push_back(
+            //     LEDContext(
+            //         frequency, 
+            //         RGB(1, 1, 1), 
+            //         true
+            //     )
+            // );
+            std::cout << "intensity: " << (int) intensity << std::endl;
+        }
         return std::tie(parameters, led_vector);
     }
 };

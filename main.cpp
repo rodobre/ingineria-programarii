@@ -3,6 +3,15 @@
  * @brief Driver program for the project, exposes an HTTP server on port 8080 to handle API requests.
  */
 
+#define INPUT_KEY "input"
+#define INPUT_TYPE_KEY "input_type"
+#define INPUT_SETTINGS_KEY "input_settings"
+
+#define OUTPUT_ERROR_KEY "error"
+#define OUTPUT_VALID_KEY "valid_request"
+#define INVALID_REQUEST_BODY "invalid_request"
+#define BAD_REQUEST_JSON "request format isn't correct"
+
 #include <set>
 #include <cstdio>
 #include <string>
@@ -10,16 +19,6 @@
 #include "device.hpp"
 #include "include/httplib/httplib.h"
 #include "include/nlohmann/json.hpp"
-
-// TODO: Create a separate file for enums, constants etc...
-const std::string INPUT_KEY = "input";
-const std::string INPUT_TYPE_KEY = "input_type";
-const std::string INPUT_SETTINGS_KEY = "input_settings";
-
-const std::string OUTPUT_ERROR_KEY = "error";
-const std::string OUTPUT_VALID_KEY = "valid_request";
-const std::string INVALID_REQUEST_BODY = "invalid_request"; 
-const std::string BAD_REQUEST_JSON = "request format isn't correct";
 
 const std::set< std::string > InputType = { 
     "UserManualInput", 
@@ -30,130 +29,6 @@ const std::set< std::string > InputType = {
     "BrightnessInput", 
     "RandomInput"
 };
-
-BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string requestType) {
-    
-    AppParameters parameters("testing device name");
-    std::vector<LEDContext> tmpLedValues;
-    
-    BaseInputContext * tmp = nullptr;
-
-    // No possible invalid type because of previous filtering....
-    if (requestType == "UserManualInput") {
-        /*
-            { color: LEDContext (not array) }
-        */
-        nlohmann::json& led = requestJson;        
-        tmp = dynamic_cast<BaseInputContext*>(
-            new UserManualInputContext(
-                parameters, 
-                UserManualData(
-                    LEDContext(
-                        led["intensity"], 
-                        RGB(led["r"], led["g"], led["b"]), 
-                        true
-                    )
-                ), 
-                true
-            )
-        );
-    }
-    else if(requestType == "UserProgrammableInput") {
-        /*
-            TBD
-        */
-        tmp = dynamic_cast<BaseInputContext*>(
-            new UserProgrammableInputContext(
-                parameters, std::move(tmpLedValues), true
-            )
-        );
-    }
-    else if(requestType == "DisplayInput") {
-        /*
-            { rgb: RGB }
-        */
-        for (nlohmann::json& led: requestJson) {
-            tmpLedValues.push_back(
-                LEDContext(
-                    led["intensity"], 
-                    RGB(led["r"], led["g"], led["b"]), 
-                    true
-                )
-            );
-        }
-        tmp = dynamic_cast<BaseInputContext*>(
-            new DisplayInputContext(
-                parameters, std::move(tmpLedValues), true
-            )
-        );
-    }
-    else if(requestType == "MusicInput") {
-        /*
-            { frequency: double }
-        */
-        std::vector<double> frequencyVector;
-
-        for (nlohmann::json& data: requestJson) {
-            frequencyVector.push_back(
-                (double) data["frequency"]
-            );
-        }
-
-        tmp = dynamic_cast<BaseInputContext*>(
-            new MusicInputContext(
-                parameters, 
-                MusicData(std::move(frequencyVector)), 
-                true
-            )
-        );
-    }
-    else if(requestType == "WeatherInput") {
-        /*
-            { temperature: float }
-        */
-        float temperature = requestJson["temperature"];
-        tmp = dynamic_cast<BaseInputContext*>(
-            new WeatherInputContext(
-                parameters, 
-                WeatherData(temperature), 
-                true
-            )
-        );
-    }
-    else if(requestType == "BrightnessInput") {
-        /*
-            { intensity: unsigned char }
-        */
-        std::vector<unsigned char> intensityVector;
-
-        for (nlohmann::json& data: requestJson) {
-            intensityVector.push_back(
-                (unsigned char) data["intensity"]
-            );
-        }
-
-        tmp = dynamic_cast<BaseInputContext*>(
-            new BrightnessInputContext(
-                parameters, 
-                BrightnessData(std::move(intensityVector)), 
-                true
-            )
-        );
-    }
-    else if(requestType == "RandomInput") {
-        /*
-            empty
-        */
-        tmp = dynamic_cast<BaseInputContext*>(
-            new RandomInputContext(
-                parameters, true
-            )
-        );
-    }
-    
-    BaseInputContextPtr smartPtr(tmp);
-    return smartPtr;
-}
 
 /**
  * @brief Main driver function of the program, runs an HTTP 
