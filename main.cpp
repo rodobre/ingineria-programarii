@@ -232,18 +232,35 @@ Example request:
     Example /iot
     curl --header "Content-Type: application/json" \
          --request POST \
-         --data '{"input_type":"MusicInput","input":[{"r":12,"g":34,"b":123,"intensity":1},{"r":43,"g":2,"b":123,"intensity":1},{"r":15,"g":14,"b":39,"intensity":1},{"r":96,"g":54,"b":90,"intensity":1}],"input_settings":"{}"}' \
+         --data '{"input_type":"UserManualInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
          http://localhost:8080/iot
 
     curl --header "Content-Type: application/json" \
          --request POST \
-         --data '{"input_type":"WeatherInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
+         --data '{"input_type":"DisplayInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"MusicInput","input":[{"frequency": 1},{"frequency": 1.25},{"frequency": 1.5},{"frequency": 2}],"input_settings":"{}"}' \
          http://localhost:8080/iot
 
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{"input_type":"WeatherInput","input":{"temperature":12.5},"input_settings":"{}"}' \
          http://localhost:8080/iot
+
+
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"BrightnessInput","input":[{"intensity": 1},{"intensity": 2},{"intensity": 3},{"intensity": 4}],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"RandomInput","input":[],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+
 
     Example /start
     curl --header "Content-Type: application/json" \
