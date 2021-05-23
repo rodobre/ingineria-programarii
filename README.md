@@ -50,3 +50,10 @@ Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run `doxygen D
 
 For better visuals, install `hugo` and run `./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/`.
 The, navigate to documentation using `cd doxybook_output/documentation` and run `hugo serve`.
+
+## Running
+
+Run `mosquitto -v` in terminal.
+After building with build.sh, run /build/main. This will open HTTP (port 8080) and MQTT (port 1883, topic "LED") input buffers.
+You can modify `mqtt_publisher.cpp` to publish different JSONs to the client, or use any other MQTT Client to publish messages to topic "LED".
+You can send JSONs through CURL that match the regex in the documentation to change LED state.
