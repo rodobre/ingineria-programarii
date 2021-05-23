@@ -22,7 +22,6 @@
 
 const std::set< std::string > InputType = { 
     "UserManualInput", 
-    "UserProgrammableInput", 
     "DisplayInput", 
     "MusicInput", 
     "WeatherInput", 

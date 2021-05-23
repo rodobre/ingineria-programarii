@@ -97,7 +97,6 @@ public:
 enum class InputTypes
 {
     UserManualInput,
-    UserProgrammableInput,
     DisplayInput,
     MusicInput,
     WeatherInput,
@@ -346,32 +345,6 @@ public:
                          (int) led.getRGB().getBlue()  << std::endl;
         }
 
-        return std::tie(parameters, led_vector);
-    }
-};
-
-
-/**
- * @brief Input context class for programmable user input
- */
-class UserProgrammableInputContext : public BaseInputContext
-{
-public:
-
-    UserProgrammableInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
-        : 
-        BaseInputContext(
-            parameters,
-            std::move(led_vector),
-            InputTypes::UserProgrammableInput,
-            active
-        )
-    {
-    }
-
-    std::tuple<AppParameters&, std::vector<LEDContext>&>
-    Process()
-    {
         return std::tie(parameters, led_vector);
     }
 };
