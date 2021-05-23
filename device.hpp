@@ -18,6 +18,17 @@ class AppContext;
 using AppContextDeleter = std::function<void(AppContext*)>;
 using AppContextPtr = std::unique_ptr<AppContext, AppContextDeleter>;
 
+/**
+ * @brief BaseInputContext Templated Types
+ */
+struct BaseInputContextDeleter {
+    void operator()(BaseInputContext * ptr) {
+        std::cout << "bag pla" << std::endl;
+        // delete ptr;
+    }
+};
+
+using BaseInputContextPtr = std::unique_ptr<BaseInputContext, BaseInputContextDeleter>; 
 
 /**
  * @brief Singleton application context
@@ -32,13 +43,13 @@ class AppContext
     /**
      * @brief Priority queue used for storage of inputs with highest priority
      */
-    using BaseInputContextRef = std::reference_wrapper<BaseInputContext>;
-    using BaseInputContextRefVector = std::vector<BaseInputContextRef>;
+    // using BaseInputContextRef = std::reference_wrapper<BaseInputContext>;
+    using BaseInputContextPtrVector = std::vector<BaseInputContextPtr>;
     std::priority_queue
         <
-        BaseInputContextRef,
-        BaseInputContextRefVector,
-        std::function<bool(const BaseInputContext&, const BaseInputContext&)>
+        BaseInputContextPtr,
+        BaseInputContextPtrVector,
+        std::function<bool(const BaseInputContextPtr&, const BaseInputContextPtr&)>
         > input_queue;
     
     /**
@@ -73,9 +84,9 @@ class AppContext
         :
         input_queue
         (
-            [] (const BaseInputContext& a, const BaseInputContext& b) -> bool
+            [] (const BaseInputContextPtr& a, const BaseInputContextPtr& b) -> bool
             {
-                return a.GetInputType() < b.GetInputType();
+                return a->GetInputType() < b->GetInputType();
             }
         ),
         context_active(false)
@@ -111,15 +122,15 @@ public:
     /**
      * @brief Enqueue an item in to the priority queue, comparison done via custom functor
      */
-    void AddInput(BaseInputContext&& input_ptr)
+    void AddInput(BaseInputContextPtr&& input_ptr)
     {
-        input_queue.push(input_ptr);
+        input_queue.push(std::move(input_ptr));
     }
 
     /**
      * @brief Peek the top of the queue
      */
-    BaseInputContext& TopQueue()
+    const BaseInputContextPtr& TopQueue()
     {
         return input_queue.top();
     }
@@ -143,10 +154,13 @@ public:
             return;
         }
         // std::cout << "NU dam return" << std::endl;
-        auto& input_processor = this->TopQueue();
-
-        auto [parameters, led_vector] = input_processor.Process();
+        const auto& input_processor = this->TopQueue();
+        // std::cout << "1111111111)" << std::endl;
+        // std::cout << input_processor.get() << std::endl;
+        auto [parameters, led_vector] = input_processor->Process();
+        // std::cout << "2 2 2 2 2 2 2 2" << std::endl;
         this->PublishChangesToDevice(parameters, led_vector);
+        // std::cout << "---------------" << std::endl;
     }
 
     /**
