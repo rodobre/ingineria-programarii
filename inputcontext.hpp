@@ -126,6 +126,36 @@ struct AppParameters
 };
 
 /**
+ * @brief Data used for parsing the UserManual input
+ */
+struct UserManualData
+{
+    RGB rgb;
+
+    UserManualData(RGB rgb)
+        :
+        rgb(rgb)
+    {
+
+    }
+};
+
+/**
+ * @brief Data used for parsing the Music input
+ */
+struct MusicData
+{
+    std::vector<double> frequencyVector;
+
+    UserManualData(std::vector<double> frequencyVector)
+        :
+        frequencyVector(std::move(frequencyVector))
+    {
+
+    }
+};
+
+/**
  * @brief Data used for parsing the Weather input
  */
 struct WeatherData
@@ -135,6 +165,21 @@ struct WeatherData
     WeatherData(float temperature)
         :
         temperature(temperature)
+    {
+
+    }
+};
+
+/**
+ * @brief Data used for parsing the Brightness input
+ */
+struct BrightnessData
+{
+    std::vector<unsigned char> intensityVector;
+
+    UserManualData(std::vector<unsigned char> intensityVector)
+        :
+        intensityVector(intensityVector)
     {
 
     }
@@ -273,16 +318,17 @@ public:
  */
 class UserManualInputContext : public BaseInputContext
 {
+    UserManualData userManualData;
 public:
 
-    UserManualInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+    UserManualInputContext(AppParameters parameters, UserManualData userManualData, bool active)
         : 
         BaseInputContext(
             parameters,
-            std::move(led_vector),
             InputTypes::UserManualInput,
             active
-        )
+        ),
+        userManualData(userManualData)
     {
     }
 
@@ -351,22 +397,33 @@ public:
  */
 class MusicInputContext : public BaseInputContext
 {
+    MusicData musicData;
 public:
 
-    MusicInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+    MusicInputContext(AppParameters parameters, MusicData musicData, bool active)
         : 
         BaseInputContext(
             parameters,
-            std::move(led_vector),
             InputTypes::MusicInput,
             active
-        )
+        ),
+        musicData(musicData)
     {
     }
 
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
+        for (auto& frequency: musicData.frequencyVector) {
+            this->led_vector.push_back(
+                LEDContext(
+                    frequency, 
+                    RGB(1, 1, 1), 
+                    true
+                )
+            );
+        }
+
         for (auto& led: led_vector) {
             std::cout << (int) led.getRGB().getRed()   << ' ' << 
                          (int) led.getRGB().getGreen() << ' ' <<
@@ -391,7 +448,7 @@ public:
         : 
         BaseInputContext(
             parameters,
-            InputTypes::MusicInput,
+            InputTypes::WeatherInput,
             active
         ),
         weatherData(weatherData)
@@ -425,16 +482,17 @@ public:
  */
 class BrightnessInputContext : public BaseInputContext
 {
+    BrightnessData brightnessData;
 public:
 
-    BrightnessInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+    BrightnessInputContext(AppParameters parameters, BrightnessData brightnessData, bool active)
         : 
         BaseInputContext(
             parameters,
-            std::move(led_vector),
             InputTypes::BrightnessInput,
             active
-        )
+        ),
+        brightnessData(brightnessData)
     {
     }
 
@@ -452,11 +510,10 @@ class RandomInputContext : public BaseInputContext
 {
 public:
 
-    RandomInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+    RandomInputContext(AppParameters parameters, bool active)
         : 
         BaseInputContext(
             parameters,
-            std::move(led_vector),
             InputTypes::RandomInput,
             active
         )

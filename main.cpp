@@ -44,14 +44,26 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
         /*
         { color: RGB (not array) }
         */
+
+        RGB rgb = requestJson["rgb"];
+        tmp = dynamic_cast<BaseInputContext*>(
+            new UserManualInputContext(
+                parameters, 
+                UserManualData(rgb), 
+                true
+            )
+        );
+
+       /*
         tmp = dynamic_cast<BaseInputContext*>(
             new UserManualInputContext(parameters, std::move(tmpLedValues), true)
-        );
+        );*/
     }
     else if(requestType == "UserProgrammableInput") {
         /*
             TBD
         */
+ 
         tmp = dynamic_cast<BaseInputContext*>(
             new UserProgrammableInputContext(parameters, std::move(tmpLedValues), true)
         );
@@ -77,31 +89,68 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
         /*
         { frequency: double }
         */
+
+        std::vector<double> frequencyVector;
+
+        for (nlohmann::json& data: requestJson) {
+            frequencyVector.push_back(
+                (double) data["frequency"]
+            );
+        }
+
+        tmp = dynamic_cast<BaseInputContext*>(
+            new MusicInputContext(
+                parameters, 
+                MusicData(frequencyVector), 
+                true
+            )
+        );
+
+       /*
         tmp = dynamic_cast<BaseInputContext*>(
             new MusicInputContext(parameters, std::move(tmpLedValues), true)
-        );
+        );*/
     }
     else if(requestType == "WeatherInput") {
         /*
         { temperature: float }
         */
-        std::cout << "111111" << std::endl;
+        //std::cout << "111111" << std::endl;
         float temperature = requestJson["temperature"];
         tmp = dynamic_cast<BaseInputContext*>(
             new WeatherInputContext(
                 parameters, 
                 WeatherData(temperature), 
-                true)
+                true
+            )
         );
-        std::cout << "111111" << std::endl;
+        //std::cout << "111111" << std::endl;
     }
     else if(requestType == "BrightnessInput") {
         /*
         { intensity: unsigned char }
         */
+
+        std::vector<unsigned char> intensityVector;
+
+        for (nlohmann::json& data: requestJson) {
+            intensityVector.push_back(
+                (unsigned char) data["intensity"]
+            );
+        }
+
+        tmp = dynamic_cast<BaseInputContext*>(
+            new BrightnessInputContext(
+                parameters, 
+                BrightnessData(intensityVector), 
+                true
+            )
+        );
+
+       /*
         tmp = dynamic_cast<BaseInputContext*>(
             new BrightnessInputContext(parameters, std::move(tmpLedValues), true)
-        );
+        );*/
     }
     else if(requestType == "RandomInput") {
         /*
