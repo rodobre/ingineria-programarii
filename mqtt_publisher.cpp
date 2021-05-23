@@ -16,7 +16,7 @@ void mqttExample()
         client.connect(options);
 
         const std::string TOPIC = "LED";
-        const std::string PAYLOAD = "{\"message\": \"asta e baaaaaaaaaaaaa\"}";
+        const std::string PAYLOAD = "{\"stop\": 123}";
         auto msg = mqtt::make_message(TOPIC, PAYLOAD);
 
         client.publish(msg);

@@ -23,13 +23,51 @@ public:
 
     ~MqttSubscriber() = default;
 
-    void Subscribe()
+    static void publishToThirdParty(std::string message)
     {
-        std::cout << "Started Subscribe" << std::endl;
+        const std::string address = "localhost";
+        const std::string clientId = "smartLed";
+
+        mqtt::client client(address, clientId);
+
+        mqtt::connect_options options;
+        options.set_keep_alive_interval(20);
+        options.set_clean_session(true);
+
+        try
+        {
+            client.connect(options);
+
+            const std::string TOPIC = "outputStream";
+            const std::string PAYLOAD = message;
+            auto msg = mqtt::make_message(TOPIC, PAYLOAD);
+
+            client.publish(msg);
+
+            client.disconnect();
+        }
+        catch (const mqtt::exception &exc)
+        {
+            std::cerr << exc.what() << " [" << exc.get_reason_code() << "]" << std::endl;
+        }
+    }
+
+    static void Subscribe(std::string message)
+    {
+        const std::set<std::string> InputType = {
+            "UserManualInput",
+            "DisplayInput",
+            "MusicInput",
+            "WeatherInput",
+            "BrightnessInput",
+            "RandomInput"};
+
         using json = nlohmann::json;
 
+        std::cout << "Started Subscribe" << std::endl;
+
         const std::string address = "localhost";
-        const std::string clientId = "ceprstsunt";
+        const std::string clientId = "subscriber";
 
         mqtt::client client(address, clientId, mqtt::create_options(MQTTVERSION_5));
 
@@ -40,6 +78,9 @@ public:
 
         try
         {
+            auto &ctx = AppContext::getInstance();
+            ctx->StartProcessingInputs();
+
             std::cout << "Connecting to the MQTT server..." << std::flush;
             client.connect(options);
             std::cout << "Connected!" << std::endl;
@@ -54,16 +95,37 @@ public:
 
                 if (msg)
                 {
-                    /* 
-                        TODO: Parse JSON like HTTP requests 
-                        Maybe we should create a function that parses json for both http and mqtt
-                    */
-                    std::cout << msg->to_string() << std::endl;
                     json requestJson = json::parse(msg->to_string());
 
-                    if (requestJson.contains("message"))
+                    if (requestJson.contains("stop"))
                     {
-                        std::cout << requestJson["message"] << std::endl;
+                        ctx->Stop();
+                    }
+
+                    if (requestJson.contains("start"))
+                    {
+                        ctx->StartProcessingInputs();
+                    }
+
+                    if (requestJson.contains(INPUT_KEY) &&
+                        requestJson.contains(INPUT_TYPE_KEY) &&
+                        requestJson.contains(INPUT_SETTINGS_KEY))
+                    {
+
+                        /* Parsing the values from each key */
+                        const std::string requestType = requestJson[INPUT_TYPE_KEY];
+                        const json requestSettings = requestJson[INPUT_SETTINGS_KEY];
+
+                        if (InputType.find(requestType) != InputType.end())
+                        {
+                            // Pushing json to the context instance
+                            ctx->AddInput(buildContext(requestJson[INPUT_KEY], requestType));
+                            publishToThirdParty("A functionat");
+                        }
+                        else
+                        {
+                            throw std::runtime_error(INVALID_REQUEST_BODY);
+                        }
                     }
                 }
                 else if (!client.is_connected())
@@ -89,12 +151,7 @@ public:
 
     void StartProcessingInputs()
     {
-        std::thread
-        t2([](MqttSubscriber *ptr) -> void {
-            ptr->Subscribe();
-        },
-           this);
-        t2.detach();
-        // t2.join();
+        std::thread processInput(Subscribe, "PROCESS_MQTT");
+        processInput.detach();
     }
 };

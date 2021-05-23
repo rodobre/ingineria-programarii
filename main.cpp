@@ -17,88 +17,92 @@
 #include <string>
 #include <stdexcept>
 #include "device.hpp"
+#include "mqtt_subscriber.hpp"
 
-const std::set< std::string > InputType = { 
-    "UserManualInput", 
-    "DisplayInput", 
-    "MusicInput", 
-    "WeatherInput", 
-    "BrightnessInput", 
-    "RandomInput"
-};
+const std::set<std::string> InputType = {
+    "UserManualInput",
+    "DisplayInput",
+    "MusicInput",
+    "WeatherInput",
+    "BrightnessInput",
+    "RandomInput"};
 
 /**
  * @brief Main driver function of the program, runs an HTTP 
  * server on port 8080 to process incoming requests (blocking!)
  * @return int - status code
  */
-int main(void) {
+int main(void)
+{
     using namespace httplib;
     using json = nlohmann::json;
-    
+
     Server svr;
 
     /* Application context instate */
-    auto& ctx = AppContext::getInstance();
+    auto &ctx = AppContext::getInstance();
     ctx->StartProcessingInputs();
 
     /* Create MQTT Subscriber */
-    // TODO: Roberte sa moara mama ca nu merge sa dai detach la threadul de la mqttSubscriber asta :( )
-    /* 
     MqttSubscriber mqttSubscriber;
     mqttSubscriber.StartProcessingInputs();
-    */
 
     /* Static folder handling */
     svr.set_mount_point("/static", "./static");
 
     /* Route to get reached by the IoT device */
 
-    svr.Post("/start", [&](const Request& req, Response& res) {
+    svr.Post("/start", [&](const Request &req, Response &res) {
         ctx->StartProcessingInputs();
     });
 
-    svr.Post("/stop", [&](const Request& req, Response& res) {
+    svr.Post("/stop", [&](const Request &req, Response &res) {
         ctx->Stop();
     });
 
-    svr.Post("/previous-setting", [&](const Request& req, Response& res) {
+    svr.Post("/previous-setting", [&](const Request &req, Response &res) {
         ctx->PopInput();
     });
 
-    svr.Post("/iot", [&](const Request& req, Response& res) {
-        
+    svr.Post("/iot", [&](const Request &req, Response &res) {
         json response;
         json requestJson = json::parse(req.body);
-        
-        try {
+
+        try
+        {
             /* Validating all mandatory keys from the JSON */
             if (requestJson.contains(INPUT_KEY) &&
                 requestJson.contains(INPUT_TYPE_KEY) &&
-                requestJson.contains(INPUT_SETTINGS_KEY)) {
-                
+                requestJson.contains(INPUT_SETTINGS_KEY))
+            {
+
                 /* Parsing the values from each key */
                 const std::string requestType = requestJson[INPUT_TYPE_KEY];
                 const json requestSettings = requestJson[INPUT_SETTINGS_KEY];
-                
-                if (InputType.find(requestType) != InputType.end()) {
-                    // Pushing json to the context instance                    
+
+                if (InputType.find(requestType) != InputType.end())
+                {
+                    // Pushing json to the context instance
                     ctx->AddInput(buildContext(requestJson[INPUT_KEY], requestType));
 
                     response[OUTPUT_VALID_KEY] = requestJson[INPUT_KEY];
-                } else {
+                }
+                else
+                {
                     throw std::runtime_error(INVALID_REQUEST_BODY);
                 }
             }
-        } catch (std::runtime_error& error) {
+        }
+        catch (std::runtime_error &error)
+        {
             response[OUTPUT_ERROR_KEY] = BAD_REQUEST_JSON;
-        } 
-        
+        }
+
         /* Return response to user */
         res.set_content(response.dump(), "text/json");
     });
 
-    svr.Get("/hi", [](const Request& req, Response& res) {
+    svr.Get("/hi", [](const Request &req, Response &res) {
         res.set_content("Hello World!", "text/plain");
     });
 
@@ -141,12 +145,14 @@ Example request:
 
 
     Example /start
+    Pentru MQTT daca trimiti in JSON cheia "start", atunci o sa dea start
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{}' \
          http://localhost:8080/start
 
     Example /stop
+    Pentru MQTT daca trimiti in JSON cheia "stop", atunci o sa dea stop
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{}' \
@@ -159,4 +165,3 @@ Example request:
          http://localhost:8080/previous-setting
 
 */
-
