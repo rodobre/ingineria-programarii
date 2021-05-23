@@ -2,6 +2,14 @@
  * @file main.cpp
  * @brief Driver program for the project, exposes an HTTP server on port 8080 to handle API requests.
  */
+#define INPUT_KEY "input"
+#define INPUT_TYPE_KEY "input_type"
+#define INPUT_SETTINGS_KEY "input_settings"
+
+#define OUTPUT_ERROR_KEY "error"
+#define OUTPUT_VALID_KEY "valid_request"
+#define INVALID_REQUEST_BODY "invalid_request"
+#define BAD_REQUEST_JSON "request format isn't correct"
 
 #include <set>
 #include <cstdio>
@@ -9,17 +17,6 @@
 #include <stdexcept>
 #include "device.hpp"
 #include "include/httplib/httplib.h"
-// #include "include/nlohmann/json.hpp"
-
-// TODO: Create a separate file for enums, constants etc...
-const std::string INPUT_KEY = "input";
-const std::string INPUT_TYPE_KEY = "input_type";
-const std::string INPUT_SETTINGS_KEY = "input_settings";
-
-const std::string OUTPUT_ERROR_KEY = "error";
-const std::string OUTPUT_VALID_KEY = "valid_request";
-const std::string INVALID_REQUEST_BODY = "invalid_request"; 
-const std::string BAD_REQUEST_JSON = "request format isn't correct";
 
 const std::set< std::string > InputType = { 
     "UserManualInput", 
