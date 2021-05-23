@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classLEDContext" kind="class" language="C++" prot="public">
+    <compoundname>LEDContext</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLEDContext_1a5a83c38b57f50a793a97a526905fb64d" prot="private" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char LEDContext::intensity</definition>
+        <argsstring></argsstring>
+        <name>intensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="59" column="1" bodyfile="inputcontext.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLEDContext_1a571c00b7ee573eba5c467a58e4bff538" prot="private" static="no" mutable="no">
+        <type><ref refid="structRGB" kindref="compound">RGB</ref></type>
+        <definition>RGB LEDContext::rgb</definition>
+        <argsstring></argsstring>
+        <name>rgb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="60" column="1" bodyfile="inputcontext.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLEDContext_1a3bfa7edcdb7522b710f30fe0cd416b35" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LEDContext::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="61" column="1" bodyfile="inputcontext.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLEDContext_1a0df5e4e2826e05b6b8b43b13444391b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LEDContext::LEDContext</definition>
+        <argsstring>()</argsstring>
+        <name>LEDContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="64" column="1" bodyfile="inputcontext.hpp" bodystart="64" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classLEDContext_1a595fe959a611f75c6791ab40b1fb5dc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LEDContext::LEDContext</definition>
+        <argsstring>(unsigned char intensity, RGB rgb, bool visible)</argsstring>
+        <name>LEDContext</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>intensity</declname>
+        </param>
+        <param>
+          <type><ref refid="structRGB" kindref="compound">RGB</ref></type>
+          <declname>rgb</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="72" column="1" bodyfile="inputcontext.hpp" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classLEDContext_1a341d5800ea8fefee47326c9a78e909ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LEDContext::LEDContext</definition>
+        <argsstring>(const LEDContext &amp;led_context)</argsstring>
+        <name>LEDContext</name>
+        <param>
+          <type>const <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &amp;</type>
+          <declname>led_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="80" column="1" bodyfile="inputcontext.hpp" bodystart="80" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classLEDContext_1a774a2e7001b38ed6bc74d721bc97715a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structRGB" kindref="compound">RGB</ref></type>
+        <definition>RGB LEDContext::getRGB</definition>
+        <argsstring>()</argsstring>
+        <name>getRGB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="88" column="1" bodyfile="inputcontext.hpp" bodystart="88" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LED context class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inputcontext.hpp" line="58" column="1" bodyfile="inputcontext.hpp" bodystart="57" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classLEDContext_1a774a2e7001b38ed6bc74d721bc97715a" prot="public" virt="non-virtual"><scope>LEDContext</scope><name>getRGB</name></member>
+      <member refid="classLEDContext_1a5a83c38b57f50a793a97a526905fb64d" prot="private" virt="non-virtual"><scope>LEDContext</scope><name>intensity</name></member>
+      <member refid="classLEDContext_1a0df5e4e2826e05b6b8b43b13444391b3" prot="public" virt="non-virtual"><scope>LEDContext</scope><name>LEDContext</name></member>
+      <member refid="classLEDContext_1a595fe959a611f75c6791ab40b1fb5dc0" prot="public" virt="non-virtual"><scope>LEDContext</scope><name>LEDContext</name></member>
+      <member refid="classLEDContext_1a341d5800ea8fefee47326c9a78e909ec" prot="public" virt="non-virtual"><scope>LEDContext</scope><name>LEDContext</name></member>
+      <member refid="classLEDContext_1a571c00b7ee573eba5c467a58e4bff538" prot="private" virt="non-virtual"><scope>LEDContext</scope><name>rgb</name></member>
+      <member refid="classLEDContext_1a3bfa7edcdb7522b710f30fe0cd416b35" prot="private" virt="non-virtual"><scope>LEDContext</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

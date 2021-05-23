@@ -59,7 +59,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -67,15 +69,57 @@ $(function() {
 
 <p>Driver program for the project, exposes an HTTP server on port 8080 to handle API requests.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &quot;include/httplib/httplib.h&quot;</code><br />
-<code>#include &quot;include/nlohmann/json.hpp&quot;</code><br />
+<div class="textblock"><code>#include &lt;set&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &quot;device.hpp&quot;</code><br />
+<code>#include &quot;mqtt_subscriber.hpp&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for main.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
+<map name="main_8cpp" id="main_8cpp">
+<area shape="rect" id="node6" href="device_8hpp_source.html" title="device.hpp" alt="" coords="2201,80,2295,107"/>
+<area shape="rect" id="node50" href="mqtt__subscriber_8hpp_source.html" title="mqtt_subscriber.hpp" alt="" coords="4205,80,4360,107"/>
+<area shape="rect" id="node15" href="inputcontext_8hpp_source.html" title="inputcontext.hpp" alt="" coords="3325,155,3457,181"/>
+</map>
+</div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a70bb99d4d6c2e1a35c26a6c84222be7f"><td class="memItemLeft" align="right" valign="top"><a id="a70bb99d4d6c2e1a35c26a6c84222be7f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_KEY</b>&#160;&#160;&#160;&quot;input&quot;</td></tr>
+<tr class="separator:a70bb99d4d6c2e1a35c26a6c84222be7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1329031adc4fd484b6edc8abfd7434"><td class="memItemLeft" align="right" valign="top"><a id="aaf1329031adc4fd484b6edc8abfd7434"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_TYPE_KEY</b>&#160;&#160;&#160;&quot;input_type&quot;</td></tr>
+<tr class="separator:aaf1329031adc4fd484b6edc8abfd7434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2685dfc271d06adb84a0d94a31d0de3"><td class="memItemLeft" align="right" valign="top"><a id="af2685dfc271d06adb84a0d94a31d0de3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_SETTINGS_KEY</b>&#160;&#160;&#160;&quot;input_settings&quot;</td></tr>
+<tr class="separator:af2685dfc271d06adb84a0d94a31d0de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c11f02aa6db89430334483bd425831"><td class="memItemLeft" align="right" valign="top"><a id="a35c11f02aa6db89430334483bd425831"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OUTPUT_ERROR_KEY</b>&#160;&#160;&#160;&quot;error&quot;</td></tr>
+<tr class="separator:a35c11f02aa6db89430334483bd425831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb3b62d951dfd91bb84d00c6d4580ea"><td class="memItemLeft" align="right" valign="top"><a id="a6bb3b62d951dfd91bb84d00c6d4580ea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OUTPUT_VALID_KEY</b>&#160;&#160;&#160;&quot;valid_request&quot;</td></tr>
+<tr class="separator:a6bb3b62d951dfd91bb84d00c6d4580ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdc10e08bf545f186ce9ddc0f347dc0"><td class="memItemLeft" align="right" valign="top"><a id="a3cdc10e08bf545f186ce9ddc0f347dc0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INVALID_REQUEST_BODY</b>&#160;&#160;&#160;&quot;invalid_request&quot;</td></tr>
+<tr class="separator:a3cdc10e08bf545f186ce9ddc0f347dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ec364faebf30a95ab7d9cad53f1f24"><td class="memItemLeft" align="right" valign="top"><a id="a20ec364faebf30a95ab7d9cad53f1f24"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BAD_REQUEST_JSON</b>&#160;&#160;&#160;&quot;request format isn't correct&quot;</td></tr>
+<tr class="separator:a20ec364faebf30a95ab7d9cad53f1f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main driver function of the program, runs an HTTP server on port 8080 to process incoming requests (blocking!)  <a href="#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0320ad1b70d522baab095239e6454546"><td class="memItemLeft" align="right" valign="top">const std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>InputType</b></td></tr>
+<tr class="separator:a0320ad1b70d522baab095239e6454546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Driver program for the project, exposes an HTTP server on port 8080 to handle API requests. </p>
@@ -99,6 +143,21 @@ Functions</h2></td></tr>
 <p>Main driver function of the program, runs an HTTP server on port 8080 to process incoming requests (blocking!) </p>
 <dl class="section return"><dt>Returns</dt><dd>int - status code </dd></dl>
 
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a0320ad1b70d522baab095239e6454546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0320ad1b70d522baab095239e6454546">&#9670;&nbsp;</a></span>InputType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::set&lt;std::string&gt; InputType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    <span class="stringliteral">&quot;UserManualInput&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;DisplayInput&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;MusicInput&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;WeatherInput&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;BrightnessInput&quot;</span>,</div><div class="line">    <span class="stringliteral">&quot;RandomInput&quot;</span>}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

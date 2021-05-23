@@ -1,0 +1,8 @@
+<map id="BaseInputContext" name="BaseInputContext">
+<area shape="rect" id="node2" href="$classBrightnessInputContext.html" title="Input context class for brightness input. " alt="" coords="196,5,371,32"/>
+<area shape="rect" id="node3" href="$classDisplayInputContext.html" title="Input context class for display input. " alt="" coords="206,56,361,83"/>
+<area shape="rect" id="node4" href="$classMusicInputContext.html" title="Input context class for music input. " alt="" coords="212,107,355,133"/>
+<area shape="rect" id="node5" href="$classRandomInputContext.html" title="Input context class for random input. " alt="" coords="203,157,363,184"/>
+<area shape="rect" id="node6" href="$classUserManualInputContext.html" title="Input context class for manual user input. " alt="" coords="192,208,375,235"/>
+<area shape="rect" id="node7" href="$classWeatherInputContext.html" title="Input context class for weather input. " alt="" coords="203,259,363,285"/>
+</map>

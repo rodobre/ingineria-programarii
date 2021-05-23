@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classAppContext" kind="class" language="C++" prot="public">
+    <compoundname>AppContext</compoundname>
+    <includes refid="device_8hpp" local="no">device.hpp</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classAppContext_1ae32c469fc0ecf67e94f0c31aaaa0a26c" prot="private" static="no">
+        <type>std::vector&lt; BaseInputContextPtr &gt;</type>
+        <definition>using AppContext::BaseInputContextPtrVector =  std::vector&lt;BaseInputContextPtr&gt;</definition>
+        <argsstring></argsstring>
+        <name>BaseInputContextPtrVector</name>
+        <briefdescription>
+<para>Priority queue used for storage of inputs with highest priority. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="51" column="1" bodyfile="device.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classAppContext_1a3eca6552a76960a44ef5b7acf8354a62" prot="private" static="yes" mutable="no">
+        <type>AppContextPtr</type>
+        <definition>AppContextPtr AppContext::instance</definition>
+        <argsstring></argsstring>
+        <name>instance</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>Static singleton instance, internally managed and exposed via <computeroutput>getInstance</computeroutput> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="45" column="1" bodyfile="device.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAppContext_1a031afce29f1e31f49febfdd15bdea169" prot="private" static="no" mutable="no">
+        <type>std::stack&lt; BaseInputContextPtr &gt;</type>
+        <definition>std::stack&lt; BaseInputContextPtr &gt; AppContext::input_queue</definition>
+        <argsstring></argsstring>
+        <name>input_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="57" column="1" bodyfile="device.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAppContext_1a12014aa644e2ccd35e2aeb47050ed158" prot="private" static="no" mutable="no">
+        <type>std::atomic_bool</type>
+        <definition>std::atomic_bool AppContext::context_active</definition>
+        <argsstring></argsstring>
+        <name>context_active</name>
+        <briefdescription>
+<para>Atomic bool to represent current status. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="62" column="1" bodyfile="device.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAppContext_1a805b01d1f5e65d1793891b375877b61c" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int AppContext::sleep_interval</definition>
+        <argsstring></argsstring>
+        <name>sleep_interval</name>
+        <initializer>{16}</initializer>
+        <briefdescription>
+<para>Sleep interval in milliseconds for async task. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="67" column="1" bodyfile="device.hpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAppContext_1adc00fd052b303af14301c194cce2b25f" prot="private" static="no" mutable="no">
+        <type>nlohmann::json</type>
+        <definition>nlohmann::json AppContext::settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <initializer>{
+        {&quot;UserManualInput&quot;, {}},
+        {&quot;UserProgrammableInput&quot;, {}},
+        {&quot;DisplayInput&quot;, {}},
+        {&quot;MusicInput&quot;, {}},
+        {&quot;WeatherInput&quot;, {}},
+        {&quot;BrightnessInput&quot;, {}},
+        {&quot;RandomInput&quot;, {}}
+    }</initializer>
+        <briefdescription>
+<para>JSON settings for multiple inputs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="73" column="1" bodyfile="device.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAppContext_1acbbcd910e22c12d8c7325a3f95622b78" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AppContext::AppContext</definition>
+        <argsstring>()</argsstring>
+        <name>AppContext</name>
+        <briefdescription>
+<para>Custom constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="87" column="1" bodyfile="device.hpp" bodystart="87" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a0e2187f63f324e29a23f28d1151474f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AppContext::~AppContext</definition>
+        <argsstring>()=default</argsstring>
+        <name>~AppContext</name>
+        <briefdescription>
+<para>Default destructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="102" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classAppContext_1a6a3fe5f796a107e125c3acaed0c8d540" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>AppContextPtr &amp;</type>
+        <definition>static AppContextPtr&amp; AppContext::getInstance</definition>
+        <argsstring>()</argsstring>
+        <name>getInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="106" column="1" bodyfile="device.hpp" bodystart="106" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a4688a40ae16907f475d447e24ca1c1a0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AppContext::publishToThirdParty</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>publishToThirdParty</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Sends a request with metadata to a third party. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="129" column="1" bodyfile="device.hpp" bodystart="129" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAppContext_1a273e111ce95ba5bfdda899c11472609d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::AddInput</definition>
+        <argsstring>(BaseInputContextPtr &amp;&amp;input_ptr)</argsstring>
+        <name>AddInput</name>
+        <param>
+          <type>BaseInputContextPtr &amp;&amp;</type>
+          <declname>input_ptr</declname>
+        </param>
+        <briefdescription>
+<para>Enqueue an item in to the priority queue, comparison done via custom functor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="140" column="1" bodyfile="device.hpp" bodystart="140" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a7830bb8450df62a5d3f04f4b8c02d408" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const BaseInputContextPtr &amp;</type>
+        <definition>const BaseInputContextPtr&amp; AppContext::TopQueue</definition>
+        <argsstring>()</argsstring>
+        <name>TopQueue</name>
+        <briefdescription>
+<para>Peek the top of the queue. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="151" column="1" bodyfile="device.hpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1aa881b9f705c7fd51c34e68c4c2a0b503" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::PopInput</definition>
+        <argsstring>()</argsstring>
+        <name>PopInput</name>
+        <briefdescription>
+<para>Pop the input on top. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="159" column="1" bodyfile="device.hpp" bodystart="159" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a111c4cd1df3382d9f52e700e579bceb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::ProcessQueue</definition>
+        <argsstring>()</argsstring>
+        <name>ProcessQueue</name>
+        <briefdescription>
+<para>Process input - pass execution context to input context with highest priority. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="174" column="1" bodyfile="device.hpp" bodystart="174" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a9db79afff28d55fdcff4194befb585c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::PublishChangesToDevice</definition>
+        <argsstring>(const AppParameters &amp;parameters, const std::vector&lt; LEDContext &gt; &amp;led_vector) noexcept</argsstring>
+        <name>PublishChangesToDevice</name>
+        <param>
+          <type>const <ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp;</type>
+          <declname>led_vector</declname>
+        </param>
+        <briefdescription>
+<para>Publish recently made changes to the controlled device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure of application parameters </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>led_vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of LED vectors, internally managed by the input context </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+<para>Dummy function, simulate publishing changes to device</para>        </inbodydescription>
+        <location file="device.hpp" line="194" column="1" bodyfile="device.hpp" bodystart="194" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a522fe0c95875b044bb1a8b30c20d589e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::StartProcessingInputs</definition>
+        <argsstring>()</argsstring>
+        <name>StartProcessingInputs</name>
+        <briefdescription>
+<para>Start processing the inputs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="205" column="1" bodyfile="device.hpp" bodystart="205" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppContext_1a2e618358872ff3844751f02a14bb81fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppContext::Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+<para>Stop processing inputs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="device.hpp" line="222" column="1" bodyfile="device.hpp" bodystart="222" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Singleton application context. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="device.hpp" line="41" column="1" bodyfile="device.hpp" bodystart="40" bodyend="226"/>
+    <listofallmembers>
+      <member refid="classAppContext_1a273e111ce95ba5bfdda899c11472609d" prot="public" virt="non-virtual"><scope>AppContext</scope><name>AddInput</name></member>
+      <member refid="classAppContext_1acbbcd910e22c12d8c7325a3f95622b78" prot="private" virt="non-virtual"><scope>AppContext</scope><name>AppContext</name></member>
+      <member refid="classAppContext_1ae32c469fc0ecf67e94f0c31aaaa0a26c" prot="private" virt="non-virtual"><scope>AppContext</scope><name>BaseInputContextPtrVector</name></member>
+      <member refid="classAppContext_1a12014aa644e2ccd35e2aeb47050ed158" prot="private" virt="non-virtual"><scope>AppContext</scope><name>context_active</name></member>
+      <member refid="classAppContext_1a6a3fe5f796a107e125c3acaed0c8d540" prot="public" virt="non-virtual"><scope>AppContext</scope><name>getInstance</name></member>
+      <member refid="classAppContext_1a031afce29f1e31f49febfdd15bdea169" prot="private" virt="non-virtual"><scope>AppContext</scope><name>input_queue</name></member>
+      <member refid="classAppContext_1a3eca6552a76960a44ef5b7acf8354a62" prot="private" virt="non-virtual"><scope>AppContext</scope><name>instance</name></member>
+      <member refid="classAppContext_1aa881b9f705c7fd51c34e68c4c2a0b503" prot="public" virt="non-virtual"><scope>AppContext</scope><name>PopInput</name></member>
+      <member refid="classAppContext_1a111c4cd1df3382d9f52e700e579bceb5" prot="public" virt="non-virtual"><scope>AppContext</scope><name>ProcessQueue</name></member>
+      <member refid="classAppContext_1a9db79afff28d55fdcff4194befb585c7" prot="public" virt="non-virtual"><scope>AppContext</scope><name>PublishChangesToDevice</name></member>
+      <member refid="classAppContext_1a4688a40ae16907f475d447e24ca1c1a0" prot="public" virt="non-virtual"><scope>AppContext</scope><name>publishToThirdParty</name></member>
+      <member refid="classAppContext_1adc00fd052b303af14301c194cce2b25f" prot="private" virt="non-virtual"><scope>AppContext</scope><name>settings</name></member>
+      <member refid="classAppContext_1a805b01d1f5e65d1793891b375877b61c" prot="private" virt="non-virtual"><scope>AppContext</scope><name>sleep_interval</name></member>
+      <member refid="classAppContext_1a522fe0c95875b044bb1a8b30c20d589e" prot="public" virt="non-virtual"><scope>AppContext</scope><name>StartProcessingInputs</name></member>
+      <member refid="classAppContext_1a2e618358872ff3844751f02a14bb81fb" prot="public" virt="non-virtual"><scope>AppContext</scope><name>Stop</name></member>
+      <member refid="classAppContext_1a7830bb8450df62a5d3f04f4b8c02d408" prot="public" virt="non-virtual"><scope>AppContext</scope><name>TopQueue</name></member>
+      <member refid="classAppContext_1a0e2187f63f324e29a23f28d1151474f1" prot="private" virt="non-virtual"><scope>AppContext</scope><name>~AppContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

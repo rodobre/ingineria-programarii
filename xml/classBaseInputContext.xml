@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classBaseInputContext" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BaseInputContext</compoundname>
+    <derivedcompoundref refid="classBrightnessInputContext" prot="public" virt="non-virtual">BrightnessInputContext</derivedcompoundref>
+    <derivedcompoundref refid="classDisplayInputContext" prot="public" virt="non-virtual">DisplayInputContext</derivedcompoundref>
+    <derivedcompoundref refid="classMusicInputContext" prot="public" virt="non-virtual">MusicInputContext</derivedcompoundref>
+    <derivedcompoundref refid="classRandomInputContext" prot="public" virt="non-virtual">RandomInputContext</derivedcompoundref>
+    <derivedcompoundref refid="classUserManualInputContext" prot="public" virt="non-virtual">UserManualInputContext</derivedcompoundref>
+    <derivedcompoundref refid="classWeatherInputContext" prot="public" virt="non-virtual">WeatherInputContext</derivedcompoundref>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classBaseInputContext_1a5fdbf0449f1db374d967fd5fe9f6d429" prot="protected" static="no" mutable="no">
+        <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref></type>
+        <definition>AppParameters BaseInputContext::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="194" column="1" bodyfile="inputcontext.hpp" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBaseInputContext_1afbc4885e5ffea25ca766188ba74365dc" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt;</type>
+        <definition>std::vector&lt;LEDContext&gt; BaseInputContext::led_vector</definition>
+        <argsstring></argsstring>
+        <name>led_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="195" column="1" bodyfile="inputcontext.hpp" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBaseInputContext_1ad8596def18b875e990a9097ecbc1f60f" prot="protected" static="no" mutable="no">
+        <type>InputTypes</type>
+        <definition>InputTypes BaseInputContext::input_type</definition>
+        <argsstring></argsstring>
+        <name>input_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="196" column="1" bodyfile="inputcontext.hpp" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBaseInputContext_1afc497040a6a6b44f3d753df6f0d70721" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BaseInputContext::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="197" column="1" bodyfile="inputcontext.hpp" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBaseInputContext_1ae8e1690d7e2f6b52b63ac3b222dd4f70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseInputContext::BaseInputContext</definition>
+        <argsstring>()</argsstring>
+        <name>BaseInputContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="200" column="1" bodyfile="inputcontext.hpp" bodystart="200" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a7d8ee828f7bf345c42654d2d35c6b54b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseInputContext::BaseInputContext</definition>
+        <argsstring>(AppParameters parameters, InputTypes input_type, bool active)</argsstring>
+        <name>BaseInputContext</name>
+        <param>
+          <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref></type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>InputTypes</type>
+          <declname>input_type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="209" column="1" bodyfile="inputcontext.hpp" bodystart="209" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1ab01c79b8298af7d22cca34d4cee4ed32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseInputContext::BaseInputContext</definition>
+        <argsstring>(AppParameters parameters, std::vector&lt; LEDContext &gt; &amp;&amp;led_vector, InputTypes input_type, bool active)</argsstring>
+        <name>BaseInputContext</name>
+        <param>
+          <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref></type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp;&amp;</type>
+          <declname>led_vector</declname>
+        </param>
+        <param>
+          <type>InputTypes</type>
+          <declname>input_type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="217" column="1" bodyfile="inputcontext.hpp" bodystart="217" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a2a2342b849914cdad5e5fafb985198fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseInputContext::BaseInputContext</definition>
+        <argsstring>(BaseInputContext &amp;other)</argsstring>
+        <name>BaseInputContext</name>
+        <param>
+          <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="226" column="1" bodyfile="inputcontext.hpp" bodystart="226" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a766e7f1c9c02069dec98870c84939d1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseInputContext::BaseInputContext</definition>
+        <argsstring>(BaseInputContext &amp;&amp;other)</argsstring>
+        <name>BaseInputContext</name>
+        <param>
+          <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="235" column="1" bodyfile="inputcontext.hpp" bodystart="235" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a0c3354b22b4f98a9f29f0b8caff28593" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;</type>
+        <definition>BaseInputContext&amp; BaseInputContext::operator=</definition>
+        <argsstring>(BaseInputContext &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="244" column="1" bodyfile="inputcontext.hpp" bodystart="244" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a63d4e572f54a59ee4fb045e066eaa132" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;</type>
+        <definition>BaseInputContext&amp; BaseInputContext::operator=</definition>
+        <argsstring>(BaseInputContext &amp;&amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classBaseInputContext" kindref="compound">BaseInputContext</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="253" column="1" bodyfile="inputcontext.hpp" bodystart="253" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1ab21b1683db227e049186d794909a5bc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BaseInputContext::~BaseInputContext</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BaseInputContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="262" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a307ef6df7438b9ee911b190808b83e1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::tuple&lt; <ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;, std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp; &gt;</type>
+        <definition>virtual std::tuple&lt;AppParameters&amp;, std::vector&lt;LEDContext&gt;&amp;&gt; BaseInputContext::Process</definition>
+        <argsstring>()=0</argsstring>
+        <name>Process</name>
+        <reimplementedby refid="classUserManualInputContext_1aac7943547f0441ae5f2391985650b393">Process</reimplementedby>
+        <reimplementedby refid="classDisplayInputContext_1a311ae1f786cf44daa1945bd1bd22caa6">Process</reimplementedby>
+        <reimplementedby refid="classMusicInputContext_1a3ebc756c72a1f7978f00ff10141291c8">Process</reimplementedby>
+        <reimplementedby refid="classWeatherInputContext_1ad25230f426a5f5cacb527aea75e6ccc6">Process</reimplementedby>
+        <reimplementedby refid="classBrightnessInputContext_1abed6703d2d678ba74efdd635b5e39104">Process</reimplementedby>
+        <reimplementedby refid="classRandomInputContext_1a19ab176510befce3e8f029cd946081f6">Process</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="265" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a4caeb00d25a397c8e7d699cd12326d89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>InputTypes</type>
+        <definition>InputTypes BaseInputContext::GetInputType</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetInputType</name>
+        <briefdescription>
+<para>Getter for the input context type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="270" column="1" bodyfile="inputcontext.hpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a990115f776002c595e3db3672301717d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp;</type>
+        <definition>std::vector&lt;LEDContext&gt;&amp; BaseInputContext::GetLedVector</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>GetLedVector</name>
+        <briefdescription>
+<para>Getter for the LED vector. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="278" column="1" bodyfile="inputcontext.hpp" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a3bbc32088faaf895d3cf1503bac2fb2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;</type>
+        <definition>AppParameters&amp; BaseInputContext::GetAppParameters</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>GetAppParameters</name>
+        <briefdescription>
+<para>Getter for the application parameters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="286" column="1" bodyfile="inputcontext.hpp" bodystart="286" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1ae6cc650533200b4f4c5f9c5dfdd19023" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BaseInputContext::IsActive</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>IsActive</name>
+        <briefdescription>
+<para>Getter for activity status. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="294" column="1" bodyfile="inputcontext.hpp" bodystart="294" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a3e3c544f5658e379a71228680a05b700" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BaseInputContext::SetAppParameters</definition>
+        <argsstring>(const AppParameters &amp;other_parameters) noexcept</argsstring>
+        <name>SetAppParameters</name>
+        <param>
+          <type>const <ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;</type>
+          <declname>other_parameters</declname>
+        </param>
+        <briefdescription>
+<para>Setter for application parameters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="302" column="1" bodyfile="inputcontext.hpp" bodystart="302" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseInputContext_1a31b87d03f2c28333e2b2a0bd746746d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BaseInputContext::SetActive</definition>
+        <argsstring>(bool is_active) noexcept</argsstring>
+        <name>SetActive</name>
+        <param>
+          <type>bool</type>
+          <declname>is_active</declname>
+        </param>
+        <briefdescription>
+<para>Setter for activity. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="310" column="1" bodyfile="inputcontext.hpp" bodystart="310" bodyend="313"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base input context class for input processing. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>RandomInputContext</label>
+        <link refid="classRandomInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>MusicInputContext</label>
+        <link refid="classMusicInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>UserManualInputContext</label>
+        <link refid="classUserManualInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DisplayInputContext</label>
+        <link refid="classDisplayInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BrightnessInputContext</label>
+        <link refid="classBrightnessInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>WeatherInputContext</label>
+        <link refid="classWeatherInputContext"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>AppParameters</label>
+        <link refid="structAppParameters"/>
+      </node>
+      <node id="11">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>parameters</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="inputcontext.hpp" line="192" column="1" bodyfile="inputcontext.hpp" bodystart="191" bodyend="314"/>
+    <listofallmembers>
+      <member refid="classBaseInputContext_1afc497040a6a6b44f3d753df6f0d70721" prot="protected" virt="non-virtual"><scope>BaseInputContext</scope><name>active</name></member>
+      <member refid="classBaseInputContext_1ae8e1690d7e2f6b52b63ac3b222dd4f70" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a7d8ee828f7bf345c42654d2d35c6b54b" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1ab01c79b8298af7d22cca34d4cee4ed32" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a2a2342b849914cdad5e5fafb985198fe" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a766e7f1c9c02069dec98870c84939d1e" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a3bbc32088faaf895d3cf1503bac2fb2f" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>GetAppParameters</name></member>
+      <member refid="classBaseInputContext_1a4caeb00d25a397c8e7d699cd12326d89" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>GetInputType</name></member>
+      <member refid="classBaseInputContext_1a990115f776002c595e3db3672301717d" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>GetLedVector</name></member>
+      <member refid="classBaseInputContext_1ad8596def18b875e990a9097ecbc1f60f" prot="protected" virt="non-virtual"><scope>BaseInputContext</scope><name>input_type</name></member>
+      <member refid="classBaseInputContext_1ae6cc650533200b4f4c5f9c5dfdd19023" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>IsActive</name></member>
+      <member refid="classBaseInputContext_1afbc4885e5ffea25ca766188ba74365dc" prot="protected" virt="non-virtual"><scope>BaseInputContext</scope><name>led_vector</name></member>
+      <member refid="classBaseInputContext_1a0c3354b22b4f98a9f29f0b8caff28593" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a63d4e572f54a59ee4fb045e066eaa132" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a5fdbf0449f1db374d967fd5fe9f6d429" prot="protected" virt="non-virtual"><scope>BaseInputContext</scope><name>parameters</name></member>
+      <member refid="classBaseInputContext_1a307ef6df7438b9ee911b190808b83e1f" prot="public" virt="pure-virtual"><scope>BaseInputContext</scope><name>Process</name></member>
+      <member refid="classBaseInputContext_1a31b87d03f2c28333e2b2a0bd746746d5" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>SetActive</name></member>
+      <member refid="classBaseInputContext_1a3e3c544f5658e379a71228680a05b700" prot="public" virt="non-virtual"><scope>BaseInputContext</scope><name>SetAppParameters</name></member>
+      <member refid="classBaseInputContext_1ab21b1683db227e049186d794909a5bc0" prot="public" virt="virtual"><scope>BaseInputContext</scope><name>~BaseInputContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

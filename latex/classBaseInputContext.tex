@@ -1,0 +1,94 @@
+\hypertarget{classBaseInputContext}{}\section{Base\+Input\+Context Class Reference}
+\label{classBaseInputContext}\index{Base\+Input\+Context@{Base\+Input\+Context}}
+
+
+Base input context class for input processing.  
+
+
+
+
+{\ttfamily \#include $<$inputcontext.\+hpp$>$}
+
+
+
+Inheritance diagram for Base\+Input\+Context\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBaseInputContext__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Input\+Context\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classBaseInputContext__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a7d8ee828f7bf345c42654d2d35c6b54b}\label{classBaseInputContext_a7d8ee828f7bf345c42654d2d35c6b54b}} 
+{\bfseries Base\+Input\+Context} (\hyperlink{structAppParameters}{App\+Parameters} parameters, Input\+Types input\+\_\+type, bool active)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_ab01c79b8298af7d22cca34d4cee4ed32}\label{classBaseInputContext_ab01c79b8298af7d22cca34d4cee4ed32}} 
+{\bfseries Base\+Input\+Context} (\hyperlink{structAppParameters}{App\+Parameters} parameters, std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ \&\&led\+\_\+vector, Input\+Types input\+\_\+type, bool active)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a2a2342b849914cdad5e5fafb985198fe}\label{classBaseInputContext_a2a2342b849914cdad5e5fafb985198fe}} 
+{\bfseries Base\+Input\+Context} (\hyperlink{classBaseInputContext}{Base\+Input\+Context} \&other)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a766e7f1c9c02069dec98870c84939d1e}\label{classBaseInputContext_a766e7f1c9c02069dec98870c84939d1e}} 
+{\bfseries Base\+Input\+Context} (\hyperlink{classBaseInputContext}{Base\+Input\+Context} \&\&other)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a0c3354b22b4f98a9f29f0b8caff28593}\label{classBaseInputContext_a0c3354b22b4f98a9f29f0b8caff28593}} 
+\hyperlink{classBaseInputContext}{Base\+Input\+Context} \& {\bfseries operator=} (\hyperlink{classBaseInputContext}{Base\+Input\+Context} \&other)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a63d4e572f54a59ee4fb045e066eaa132}\label{classBaseInputContext_a63d4e572f54a59ee4fb045e066eaa132}} 
+\hyperlink{classBaseInputContext}{Base\+Input\+Context} \& {\bfseries operator=} (\hyperlink{classBaseInputContext}{Base\+Input\+Context} \&\&other)
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a307ef6df7438b9ee911b190808b83e1f}\label{classBaseInputContext_a307ef6df7438b9ee911b190808b83e1f}} 
+virtual std\+::tuple$<$ \hyperlink{structAppParameters}{App\+Parameters} \&, std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ \& $>$ {\bfseries Process} ()=0
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a4caeb00d25a397c8e7d699cd12326d89}\label{classBaseInputContext_a4caeb00d25a397c8e7d699cd12326d89}} 
+Input\+Types \hyperlink{classBaseInputContext_a4caeb00d25a397c8e7d699cd12326d89}{Get\+Input\+Type} () const noexcept
+\begin{DoxyCompactList}\small\item\em Getter for the input context type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseInputContext_a990115f776002c595e3db3672301717d}\label{classBaseInputContext_a990115f776002c595e3db3672301717d}} 
+std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ \& \hyperlink{classBaseInputContext_a990115f776002c595e3db3672301717d}{Get\+Led\+Vector} () noexcept
+\begin{DoxyCompactList}\small\item\em Getter for the L\+ED vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseInputContext_a3bbc32088faaf895d3cf1503bac2fb2f}\label{classBaseInputContext_a3bbc32088faaf895d3cf1503bac2fb2f}} 
+\hyperlink{structAppParameters}{App\+Parameters} \& \hyperlink{classBaseInputContext_a3bbc32088faaf895d3cf1503bac2fb2f}{Get\+App\+Parameters} () noexcept
+\begin{DoxyCompactList}\small\item\em Getter for the application parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseInputContext_ae6cc650533200b4f4c5f9c5dfdd19023}\label{classBaseInputContext_ae6cc650533200b4f4c5f9c5dfdd19023}} 
+bool \hyperlink{classBaseInputContext_ae6cc650533200b4f4c5f9c5dfdd19023}{Is\+Active} () noexcept
+\begin{DoxyCompactList}\small\item\em Getter for activity status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseInputContext_a3e3c544f5658e379a71228680a05b700}\label{classBaseInputContext_a3e3c544f5658e379a71228680a05b700}} 
+void \hyperlink{classBaseInputContext_a3e3c544f5658e379a71228680a05b700}{Set\+App\+Parameters} (const \hyperlink{structAppParameters}{App\+Parameters} \&other\+\_\+parameters) noexcept
+\begin{DoxyCompactList}\small\item\em Setter for application parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBaseInputContext_a31b87d03f2c28333e2b2a0bd746746d5}\label{classBaseInputContext_a31b87d03f2c28333e2b2a0bd746746d5}} 
+void \hyperlink{classBaseInputContext_a31b87d03f2c28333e2b2a0bd746746d5}{Set\+Active} (bool is\+\_\+active) noexcept
+\begin{DoxyCompactList}\small\item\em Setter for activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseInputContext_a5fdbf0449f1db374d967fd5fe9f6d429}\label{classBaseInputContext_a5fdbf0449f1db374d967fd5fe9f6d429}} 
+\hyperlink{structAppParameters}{App\+Parameters} {\bfseries parameters}
+\item 
+\mbox{\Hypertarget{classBaseInputContext_afbc4885e5ffea25ca766188ba74365dc}\label{classBaseInputContext_afbc4885e5ffea25ca766188ba74365dc}} 
+std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ {\bfseries led\+\_\+vector}
+\item 
+\mbox{\Hypertarget{classBaseInputContext_ad8596def18b875e990a9097ecbc1f60f}\label{classBaseInputContext_ad8596def18b875e990a9097ecbc1f60f}} 
+Input\+Types {\bfseries input\+\_\+type}
+\item 
+\mbox{\Hypertarget{classBaseInputContext_afc497040a6a6b44f3d753df6f0d70721}\label{classBaseInputContext_afc497040a6a6b44f3d753df6f0d70721}} 
+bool {\bfseries active}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base input context class for input processing. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inputcontext.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structMusicData" kind="struct" language="C++" prot="public">
+    <compoundname>MusicData</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMusicData_1a172fa273494c06fd7c1ce0ebb7375264" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; MusicData::frequencyVector</definition>
+        <argsstring></argsstring>
+        <name>frequencyVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="148" column="1" bodyfile="inputcontext.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structMusicData_1aea401e148e5615e4eb1bd39154d9f0b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MusicData::MusicData</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;&amp;frequencyVector)</argsstring>
+        <name>MusicData</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;&amp;</type>
+          <declname>frequencyVector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="150" column="1" bodyfile="inputcontext.hpp" bodystart="150" bodyend="155"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Data used for parsing the Music input. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inputcontext.hpp" line="147" column="1" bodyfile="inputcontext.hpp" bodystart="146" bodyend="156"/>
+    <listofallmembers>
+      <member refid="structMusicData_1a172fa273494c06fd7c1ce0ebb7375264" prot="public" virt="non-virtual"><scope>MusicData</scope><name>frequencyVector</name></member>
+      <member refid="structMusicData_1aea401e148e5615e4eb1bd39154d9f0b4" prot="public" virt="non-virtual"><scope>MusicData</scope><name>MusicData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

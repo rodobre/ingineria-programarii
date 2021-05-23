@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classUserManualInputContext" kind="class" language="C++" prot="public">
+    <compoundname>UserManualInputContext</compoundname>
+    <basecompoundref refid="classBaseInputContext" prot="public" virt="non-virtual">BaseInputContext</basecompoundref>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classUserManualInputContext_1a957f4a1c9ed082b8694cc58c7fc74d95" prot="private" static="no" mutable="no">
+        <type><ref refid="structUserManualData" kindref="compound">UserManualData</ref></type>
+        <definition>UserManualData UserManualInputContext::userManualData</definition>
+        <argsstring></argsstring>
+        <name>userManualData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="321" column="1" bodyfile="inputcontext.hpp" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classUserManualInputContext_1a3ee58341cb01d323935413b9b5cb80f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UserManualInputContext::UserManualInputContext</definition>
+        <argsstring>(AppParameters parameters, UserManualData userManualData, bool active)</argsstring>
+        <name>UserManualInputContext</name>
+        <param>
+          <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref></type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type><ref refid="structUserManualData" kindref="compound">UserManualData</ref></type>
+          <declname>userManualData</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="324" column="1" bodyfile="inputcontext.hpp" bodystart="324" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classUserManualInputContext_1aac7943547f0441ae5f2391985650b393" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::tuple&lt; <ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;, std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp; &gt;</type>
+        <definition>std::tuple&lt;AppParameters&amp;, std::vector&lt;LEDContext&gt;&amp;&gt; UserManualInputContext::Process</definition>
+        <argsstring>()</argsstring>
+        <name>Process</name>
+        <reimplements refid="classBaseInputContext_1a307ef6df7438b9ee911b190808b83e1f">Process</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="336" column="1" bodyfile="inputcontext.hpp" bodystart="336" bodyend="349"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Input context class for manual user input. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="48">
+        <label>UserManualInputContext</label>
+        <link refid="classUserManualInputContext"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>AppParameters</label>
+        <link refid="structAppParameters"/>
+      </node>
+      <node id="50">
+        <label>UserManualInputContext</label>
+        <link refid="classUserManualInputContext"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+        <childnode refid="52" relation="usage">
+          <edgelabel>parameters</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="inputcontext.hpp" line="320" column="1" bodyfile="inputcontext.hpp" bodystart="319" bodyend="350"/>
+    <listofallmembers>
+      <member refid="classBaseInputContext_1afc497040a6a6b44f3d753df6f0d70721" prot="protected" virt="non-virtual"><scope>UserManualInputContext</scope><name>active</name></member>
+      <member refid="classBaseInputContext_1ae8e1690d7e2f6b52b63ac3b222dd4f70" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a7d8ee828f7bf345c42654d2d35c6b54b" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1ab01c79b8298af7d22cca34d4cee4ed32" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a2a2342b849914cdad5e5fafb985198fe" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a766e7f1c9c02069dec98870c84939d1e" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a3bbc32088faaf895d3cf1503bac2fb2f" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>GetAppParameters</name></member>
+      <member refid="classBaseInputContext_1a4caeb00d25a397c8e7d699cd12326d89" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>GetInputType</name></member>
+      <member refid="classBaseInputContext_1a990115f776002c595e3db3672301717d" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>GetLedVector</name></member>
+      <member refid="classBaseInputContext_1ad8596def18b875e990a9097ecbc1f60f" prot="protected" virt="non-virtual"><scope>UserManualInputContext</scope><name>input_type</name></member>
+      <member refid="classBaseInputContext_1ae6cc650533200b4f4c5f9c5dfdd19023" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>IsActive</name></member>
+      <member refid="classBaseInputContext_1afbc4885e5ffea25ca766188ba74365dc" prot="protected" virt="non-virtual"><scope>UserManualInputContext</scope><name>led_vector</name></member>
+      <member refid="classBaseInputContext_1a0c3354b22b4f98a9f29f0b8caff28593" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a63d4e572f54a59ee4fb045e066eaa132" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a5fdbf0449f1db374d967fd5fe9f6d429" prot="protected" virt="non-virtual"><scope>UserManualInputContext</scope><name>parameters</name></member>
+      <member refid="classUserManualInputContext_1aac7943547f0441ae5f2391985650b393" prot="public" virt="virtual"><scope>UserManualInputContext</scope><name>Process</name></member>
+      <member refid="classBaseInputContext_1a31b87d03f2c28333e2b2a0bd746746d5" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>SetActive</name></member>
+      <member refid="classBaseInputContext_1a3e3c544f5658e379a71228680a05b700" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>SetAppParameters</name></member>
+      <member refid="classUserManualInputContext_1a957f4a1c9ed082b8694cc58c7fc74d95" prot="private" virt="non-virtual"><scope>UserManualInputContext</scope><name>userManualData</name></member>
+      <member refid="classUserManualInputContext_1a3ee58341cb01d323935413b9b5cb80f2" prot="public" virt="non-virtual"><scope>UserManualInputContext</scope><name>UserManualInputContext</name></member>
+      <member refid="classBaseInputContext_1ab21b1683db227e049186d794909a5bc0" prot="public" virt="virtual"><scope>UserManualInputContext</scope><name>~BaseInputContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

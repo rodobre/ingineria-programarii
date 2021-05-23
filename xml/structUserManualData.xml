@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structUserManualData" kind="struct" language="C++" prot="public">
+    <compoundname>UserManualData</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structUserManualData_1aec74f70aeef43227b6b1a494333687df" prot="public" static="no" mutable="no">
+        <type><ref refid="classLEDContext" kindref="compound">LEDContext</ref></type>
+        <definition>LEDContext UserManualData::led</definition>
+        <argsstring></argsstring>
+        <name>led</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="133" column="1" bodyfile="inputcontext.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structUserManualData_1a598240dc298cc519dffc1a73c9c911cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UserManualData::UserManualData</definition>
+        <argsstring>(LEDContext led)</argsstring>
+        <name>UserManualData</name>
+        <param>
+          <type><ref refid="classLEDContext" kindref="compound">LEDContext</ref></type>
+          <declname>led</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="135" column="1" bodyfile="inputcontext.hpp" bodystart="135" bodyend="140"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Data used for parsing the UserManual input. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="46">
+        <label>UserManualData</label>
+        <link refid="structUserManualData"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>led</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>LEDContext</label>
+        <link refid="classLEDContext"/>
+      </node>
+    </collaborationgraph>
+    <location file="inputcontext.hpp" line="132" column="1" bodyfile="inputcontext.hpp" bodystart="131" bodyend="141"/>
+    <listofallmembers>
+      <member refid="structUserManualData_1aec74f70aeef43227b6b1a494333687df" prot="public" virt="non-virtual"><scope>UserManualData</scope><name>led</name></member>
+      <member refid="structUserManualData_1a598240dc298cc519dffc1a73c9c911cb" prot="public" virt="non-virtual"><scope>UserManualData</scope><name>UserManualData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

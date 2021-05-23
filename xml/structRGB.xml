@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structRGB" kind="struct" language="C++" prot="public">
+    <compoundname>RGB</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRGB_1a8ea970fcd312802ef238733b1c9ed63d" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="15" column="1" bodyfile="inputcontext.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRGB_1a3595e9a2ed44c815153aff4e84e2d97c" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="16" column="1" bodyfile="inputcontext.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRGB_1ab2a3ac761d61594e2c51d65347a74017" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="17" column="1" bodyfile="inputcontext.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRGB_1ac82f37558b845c294de41eb2558c6619" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RGB::RGB</definition>
+        <argsstring>()</argsstring>
+        <name>RGB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="20" column="1" bodyfile="inputcontext.hpp" bodystart="20" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structRGB_1ae5c6f8e87d889304b591d841ed635ec9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RGB::RGB</definition>
+        <argsstring>(unsigned char _r, unsigned char _g, unsigned char _b)</argsstring>
+        <name>RGB</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>_r</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>_g</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>_b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="27" column="1" bodyfile="inputcontext.hpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="structRGB_1adf1461c8cdffc074a2e019dc9d1f3bc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RGB::RGB</definition>
+        <argsstring>(const RGB &amp;rgb)</argsstring>
+        <name>RGB</name>
+        <param>
+          <type>const <ref refid="structRGB" kindref="compound">RGB</ref> &amp;</type>
+          <declname>rgb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="34" column="1" bodyfile="inputcontext.hpp" bodystart="34" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structRGB_1a4a5e452c99048fbf1c71e2983794a982" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::getRed</definition>
+        <argsstring>()</argsstring>
+        <name>getRed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="41" column="1" bodyfile="inputcontext.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structRGB_1a1744e7db1a6f3f7aa527c7c892ac422b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::getGreen</definition>
+        <argsstring>()</argsstring>
+        <name>getGreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="45" column="1" bodyfile="inputcontext.hpp" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structRGB_1a641b32101c60fc25ef1f91be5ae0264c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned char</type>
+        <definition>unsigned char RGB::getBlue</definition>
+        <argsstring>()</argsstring>
+        <name>getBlue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="49" column="1" bodyfile="inputcontext.hpp" bodystart="49" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structRGB" kindref="compound">RGB</ref> data structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inputcontext.hpp" line="14" column="1" bodyfile="inputcontext.hpp" bodystart="13" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structRGB_1ab2a3ac761d61594e2c51d65347a74017" prot="public" virt="non-virtual"><scope>RGB</scope><name>b</name></member>
+      <member refid="structRGB_1a3595e9a2ed44c815153aff4e84e2d97c" prot="public" virt="non-virtual"><scope>RGB</scope><name>g</name></member>
+      <member refid="structRGB_1a641b32101c60fc25ef1f91be5ae0264c" prot="public" virt="non-virtual"><scope>RGB</scope><name>getBlue</name></member>
+      <member refid="structRGB_1a1744e7db1a6f3f7aa527c7c892ac422b" prot="public" virt="non-virtual"><scope>RGB</scope><name>getGreen</name></member>
+      <member refid="structRGB_1a4a5e452c99048fbf1c71e2983794a982" prot="public" virt="non-virtual"><scope>RGB</scope><name>getRed</name></member>
+      <member refid="structRGB_1a8ea970fcd312802ef238733b1c9ed63d" prot="public" virt="non-virtual"><scope>RGB</scope><name>r</name></member>
+      <member refid="structRGB_1ac82f37558b845c294de41eb2558c6619" prot="public" virt="non-virtual"><scope>RGB</scope><name>RGB</name></member>
+      <member refid="structRGB_1ae5c6f8e87d889304b591d841ed635ec9" prot="public" virt="non-virtual"><scope>RGB</scope><name>RGB</name></member>
+      <member refid="structRGB_1adf1461c8cdffc074a2e019dc9d1f3bc1" prot="public" virt="non-virtual"><scope>RGB</scope><name>RGB</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

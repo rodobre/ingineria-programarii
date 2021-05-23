@@ -11,6 +11,46 @@
 <codeline></codeline>
 <codeline><highlight class="normal">Install<sp/>apt<sp/>packages<sp/>with<sp/>the<sp/>versioning<sp/>provided<sp/>in<sp/>`system_requirements.MD`</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">Install<sp/>Mosquitto</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt-add-repository<sp/>ppa:mosquitto-dev/mosquitto-ppa</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt<sp/>update</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt<sp/>install<sp/>mosquitto</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Install<sp/>Paho</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>build-essential<sp/>gcc<sp/>make<sp/>cmake<sp/>cmake-gui<sp/>cmake-curses-gui</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>libssl-dev</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/eclipse/paho.mqtt.c.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>paho.mqtt.c</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>checkout<sp/>v1.3.8</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-Bbuild<sp/>-H.<sp/>-DPAHO_ENABLE_TESTING=OFF<sp/>-DPAHO_BUILD_STATIC=ON<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-DPAHO_WITH_SSL=ON<sp/>-DPAHO_HIGH_PERFORMANCE=ON</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>cmake<sp/>--build<sp/>build/<sp/>--target<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>ldconfig</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/eclipse/paho.mqtt.cpp</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>paho.mqtt.cpp</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-Bbuild<sp/>-H.<sp/>-DPAHO_BUILD_STATIC=ON<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-DPAHO_BUILD_DOCUMENTATION=TRUE<sp/>-DPAHO_BUILD_SAMPLES=TRUE</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>cmake<sp/>--build<sp/>build/<sp/>--target<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>ldconfig</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>MQTT<sp/>Server</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>`mosquitto<sp/>-v`<sp/>in<sp/>terminal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>MQTT<sp/>Publisher</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Build<sp/>`mqtt_publisher.cpp`<sp/>and<sp/>run<sp/>it<sp/>to<sp/>send<sp/>a<sp/>JSON<sp/>message<sp/>to<sp/>MQTT<sp/>Server</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Build<sp/>by<sp/>executing<sp/>build.sh<sp/>on<sp/>Linux<sp/>(Debian/Ubuntu/CentOS<sp/>RHEL),<sp/>run<sp/>`doxygen<sp/>Doxyfile`<sp/>to<sp/>regenerate<sp/>documentation</highlight></codeline>
@@ -19,6 +59,13 @@
 <codeline></codeline>
 <codeline><highlight class="normal">For<sp/>better<sp/>visuals,<sp/>install<sp/>`hugo`<sp/>and<sp/>run<sp/>`./doxybook2<sp/>--input<sp/>xml/<sp/>--output<sp/>doxybook_output/documentation/content<sp/>--config<sp/>.doxybook/config.json<sp/>--templates<sp/>.doxybook/templates/`.</highlight></codeline>
 <codeline><highlight class="normal">The,<sp/>navigate<sp/>to<sp/>documentation<sp/>using<sp/>`cd<sp/>doxybook_output/documentation`<sp/>and<sp/>run<sp/>`hugo<sp/>serve`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Running</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>`mosquitto<sp/>-v`<sp/>in<sp/>terminal.</highlight></codeline>
+<codeline><highlight class="normal">After<sp/>building<sp/>with<sp/>build.sh,<sp/>run<sp/>/build/main.<sp/>This<sp/>will<sp/>open<sp/>HTTP<sp/>(port<sp/>8080)<sp/>and<sp/>MQTT<sp/>(port<sp/>1883,<sp/>topic<sp/>&quot;LED&quot;)<sp/>input<sp/>buffers.</highlight></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>modify<sp/>`mqtt_publisher.cpp`<sp/>to<sp/>publish<sp/>different<sp/>JSONs<sp/>to<sp/>the<sp/>client,<sp/>or<sp/>use<sp/>any<sp/>other<sp/>MQTT<sp/>Client<sp/>to<sp/>publish<sp/>messages<sp/>to<sp/>topic<sp/>&quot;LED&quot;.</highlight></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>send<sp/>JSONs<sp/>through<sp/>CURL<sp/>that<sp/>match<sp/>the<sp/>regex<sp/>in<sp/>the<sp/>documentation<sp/>to<sp/>change<sp/>LED<sp/>state.</highlight></codeline>
     </programlisting>
     <location file="README.md"/>
   </compounddef>
