@@ -126,6 +126,21 @@ struct AppParameters
 };
 
 /**
+ * @brief Data used for parsing the Weather input
+ */
+struct WeatherData
+{
+    float temperature;
+
+    WeatherData(float temperature)
+        :
+        temperature(temperature)
+    {
+
+    }
+};
+
+/**
  * @brief Base input context class for input processing
  */
 class BaseInputContext
@@ -146,6 +161,14 @@ public:
     {
     }
 
+    BaseInputContext(AppParameters parameters, InputTypes input_type, bool active)
+        : 
+        parameters(parameters),
+        input_type(input_type),
+        active(false)
+    {
+    }
+
     BaseInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, InputTypes input_type, bool active)
         : 
         parameters(parameters),
@@ -153,7 +176,6 @@ public:
         input_type(input_type),
         active(false)
     {
-
     }
 
     BaseInputContext(BaseInputContext& other)
@@ -360,22 +382,34 @@ public:
  */
 class WeatherInputContext : public BaseInputContext
 {
+
+    WeatherData weatherData;
+
 public:
 
-    WeatherInputContext(AppParameters parameters, std::vector<LEDContext>&& led_vector, bool active)
+    WeatherInputContext(AppParameters parameters, WeatherData weatherData, bool active)
         : 
         BaseInputContext(
             parameters,
-            std::move(led_vector),
             InputTypes::MusicInput,
             active
-        )
+        ),
+        weatherData(weatherData)
     {
     }
 
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
+        // TODO: to be removed
+        this->led_vector.push_back(
+            LEDContext(
+                0, 
+                RGB(1, 1, 1), 
+                true
+            )
+        );
+
         for (auto& led: led_vector) {
             std::cout << (int) led.getRGB().getRed()   << ' ' << 
                          (int) led.getRGB().getGreen() << ' ' <<

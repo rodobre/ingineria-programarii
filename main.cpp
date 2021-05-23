@@ -35,51 +35,78 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
     
     AppParameters parameters("testing device name");
     std::vector<LEDContext> tmpLedValues;
-    for (nlohmann::json& led: requestJson) {
-        tmpLedValues.push_back(
-            LEDContext(
-                led["intensity"], 
-                RGB(led["r"], led["g"], led["b"]), 
-                true
-            )
-        );
-    }
+    
     
     BaseInputContext * tmp = nullptr;
 
     // No possible invalid type because of previous filtering....
     if (requestType == "UserManualInput") {
+        /*
+        { color: RGB (not array) }
+        */
         tmp = dynamic_cast<BaseInputContext*>(
             new UserManualInputContext(parameters, std::move(tmpLedValues), true)
         );
     }
     else if(requestType == "UserProgrammableInput") {
+        /*
+            TBD
+        */
         tmp = dynamic_cast<BaseInputContext*>(
             new UserProgrammableInputContext(parameters, std::move(tmpLedValues), true)
         );
     }
     else if(requestType == "DisplayInput") {
+        /*
+        { rgb: RGB }
+        */
+        for (nlohmann::json& led: requestJson) {
+            tmpLedValues.push_back(
+                LEDContext(
+                    led["intensity"], 
+                    RGB(led["r"], led["g"], led["b"]), 
+                    true
+                )
+            );
+        }
         tmp = dynamic_cast<BaseInputContext*>(
             new DisplayInputContext(parameters, std::move(tmpLedValues), true)
         );
     }
     else if(requestType == "MusicInput") {
+        /*
+        { frequency: double }
+        */
         tmp = dynamic_cast<BaseInputContext*>(
             new MusicInputContext(parameters, std::move(tmpLedValues), true)
         );
     }
     else if(requestType == "WeatherInput") {
-        
+        /*
+        { temperature: float }
+        */
+        std::cout << "111111" << std::endl;
+        float temperature = requestJson["temperature"];
         tmp = dynamic_cast<BaseInputContext*>(
-            new WeatherInputContext(parameters, std::move(tmpLedValues), true)
+            new WeatherInputContext(
+                parameters, 
+                WeatherData(temperature), 
+                true)
         );
+        std::cout << "111111" << std::endl;
     }
     else if(requestType == "BrightnessInput") {
+        /*
+        { intensity: unsigned char }
+        */
         tmp = dynamic_cast<BaseInputContext*>(
             new BrightnessInputContext(parameters, std::move(tmpLedValues), true)
         );
     }
     else if(requestType == "RandomInput") {
+        /*
+        empty
+        */
         tmp = dynamic_cast<BaseInputContext*>(
             new RandomInputContext(parameters, std::move(tmpLedValues), true)
         );
@@ -172,6 +199,11 @@ Example request:
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{"input_type":"WeatherInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"WeatherInput","input":{"temperature":12.5},"input_settings":"{}"}' \
          http://localhost:8080/iot
 
     Example /start
