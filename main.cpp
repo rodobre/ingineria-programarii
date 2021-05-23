@@ -36,41 +36,41 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
     AppParameters parameters("testing device name");
     std::vector<LEDContext> tmpLedValues;
     
-    
     BaseInputContext * tmp = nullptr;
 
     // No possible invalid type because of previous filtering....
     if (requestType == "UserManualInput") {
         /*
-        { color: RGB (not array) }
+            { color: LEDContext (not array) }
         */
-
-        RGB rgb = requestJson["rgb"];
+        nlohmann::json& led = requestJson;        
         tmp = dynamic_cast<BaseInputContext*>(
             new UserManualInputContext(
                 parameters, 
-                UserManualData(rgb), 
+                UserManualData(
+                    LEDContext(
+                        led["intensity"], 
+                        RGB(led["r"], led["g"], led["b"]), 
+                        true
+                    )
+                ), 
                 true
             )
         );
-
-       /*
-        tmp = dynamic_cast<BaseInputContext*>(
-            new UserManualInputContext(parameters, std::move(tmpLedValues), true)
-        );*/
     }
     else if(requestType == "UserProgrammableInput") {
         /*
             TBD
         */
- 
         tmp = dynamic_cast<BaseInputContext*>(
-            new UserProgrammableInputContext(parameters, std::move(tmpLedValues), true)
+            new UserProgrammableInputContext(
+                parameters, std::move(tmpLedValues), true
+            )
         );
     }
     else if(requestType == "DisplayInput") {
         /*
-        { rgb: RGB }
+            { rgb: RGB }
         */
         for (nlohmann::json& led: requestJson) {
             tmpLedValues.push_back(
@@ -82,14 +82,15 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
             );
         }
         tmp = dynamic_cast<BaseInputContext*>(
-            new DisplayInputContext(parameters, std::move(tmpLedValues), true)
+            new DisplayInputContext(
+                parameters, std::move(tmpLedValues), true
+            )
         );
     }
     else if(requestType == "MusicInput") {
         /*
-        { frequency: double }
+            { frequency: double }
         */
-
         std::vector<double> frequencyVector;
 
         for (nlohmann::json& data: requestJson) {
@@ -101,21 +102,15 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
         tmp = dynamic_cast<BaseInputContext*>(
             new MusicInputContext(
                 parameters, 
-                MusicData(frequencyVector), 
+                MusicData(std::move(frequencyVector)), 
                 true
             )
         );
-
-       /*
-        tmp = dynamic_cast<BaseInputContext*>(
-            new MusicInputContext(parameters, std::move(tmpLedValues), true)
-        );*/
     }
     else if(requestType == "WeatherInput") {
         /*
-        { temperature: float }
+            { temperature: float }
         */
-        //std::cout << "111111" << std::endl;
         float temperature = requestJson["temperature"];
         tmp = dynamic_cast<BaseInputContext*>(
             new WeatherInputContext(
@@ -124,13 +119,11 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
                 true
             )
         );
-        //std::cout << "111111" << std::endl;
     }
     else if(requestType == "BrightnessInput") {
         /*
-        { intensity: unsigned char }
+            { intensity: unsigned char }
         */
-
         std::vector<unsigned char> intensityVector;
 
         for (nlohmann::json& data: requestJson) {
@@ -142,22 +135,19 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
         tmp = dynamic_cast<BaseInputContext*>(
             new BrightnessInputContext(
                 parameters, 
-                BrightnessData(intensityVector), 
+                BrightnessData(std::move(intensityVector)), 
                 true
             )
         );
-
-       /*
-        tmp = dynamic_cast<BaseInputContext*>(
-            new BrightnessInputContext(parameters, std::move(tmpLedValues), true)
-        );*/
     }
     else if(requestType == "RandomInput") {
         /*
-        empty
+            empty
         */
         tmp = dynamic_cast<BaseInputContext*>(
-            new RandomInputContext(parameters, std::move(tmpLedValues), true)
+            new RandomInputContext(
+                parameters, true
+            )
         );
     }
     

@@ -130,11 +130,11 @@ struct AppParameters
  */
 struct UserManualData
 {
-    RGB rgb;
+    LEDContext led;
 
-    UserManualData(RGB rgb)
+    UserManualData(LEDContext led)
         :
-        rgb(rgb)
+        led(led)
     {
 
     }
@@ -147,7 +147,7 @@ struct MusicData
 {
     std::vector<double> frequencyVector;
 
-    UserManualData(std::vector<double> frequencyVector)
+    MusicData(std::vector<double>&& frequencyVector)
         :
         frequencyVector(std::move(frequencyVector))
     {
@@ -177,9 +177,9 @@ struct BrightnessData
 {
     std::vector<unsigned char> intensityVector;
 
-    UserManualData(std::vector<unsigned char> intensityVector)
+    BrightnessData(std::vector<unsigned char>&& intensityVector)
         :
-        intensityVector(intensityVector)
+        intensityVector(std::move(intensityVector))
     {
 
     }
