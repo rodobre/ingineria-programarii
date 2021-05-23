@@ -337,7 +337,7 @@ public:
     Process()
     {
         this->led_vector.push_back(
-            this->userManualData.led
+            userManualData.led
         );
 
         for (auto& led: led_vector) {
@@ -440,8 +440,6 @@ public:
             );
             std::cout << "frequency: " << frequency << std::endl;
         }
-
-        
 
         for (auto& led: led_vector) {
             std::cout << (int) led.getRGB().getRed()   << ' ' << 
@@ -554,6 +552,12 @@ public:
                 true
             )
         );
+
+        for (auto& led: led_vector) {
+            std::cout << (int) led.getRGB().getRed()   << ' ' << 
+                         (int) led.getRGB().getGreen() << ' ' <<
+                         (int) led.getRGB().getBlue()  << std::endl;
+        }
         return std::tie(parameters, led_vector);
     }
 };

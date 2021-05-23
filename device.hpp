@@ -4,6 +4,7 @@
 #include <memory>
 #include <functional>
 #include <queue>
+#include <stack>
 #include <atomic>
 #include <thread>
 #include <future>
@@ -44,11 +45,11 @@ class AppContext
      */
     // using BaseInputContextRef = std::reference_wrapper<BaseInputContext>;
     using BaseInputContextPtrVector = std::vector<BaseInputContextPtr>;
-    std::priority_queue
+    std::stack
         <
-        BaseInputContextPtr,
-        BaseInputContextPtrVector,
-        std::function<bool(const BaseInputContextPtr&, const BaseInputContextPtr&)>
+        BaseInputContextPtr//,
+        // BaseInputContextPtrVector,
+        // std::function<bool(const BaseInputContextPtr&, const BaseInputContextPtr&)>
         > input_queue;
     
     /**
@@ -81,13 +82,13 @@ class AppContext
      */
     AppContext()
         :
-        input_queue
-        (
-            [] (const BaseInputContextPtr& a, const BaseInputContextPtr& b) -> bool
-            {
-                return a->GetInputType() < b->GetInputType();
-            }
-        ),
+        // input_queue
+        // (
+        //     [] (const BaseInputContextPtr& a, const BaseInputContextPtr& b) -> bool
+        //     {
+        //         return a->GetInputType() < b->GetInputType();
+        //     }
+        // ),
         context_active(false)
     {}
 
@@ -139,9 +140,11 @@ public:
      */
     void PopInput()
     {
-        // if (this->input_queue.empty()) {
+        if (this->input_queue.empty()) 
+        {
+            return;
+        }
 
-        // }
         input_queue.pop();
     }
 
@@ -155,14 +158,12 @@ public:
             // std::cout << "dam return" << std::endl;
             return;
         }
-        // std::cout << "NU dam return" << std::endl;
+
         const auto& input_processor = this->TopQueue();
-        // std::cout << "1111111111)" << std::endl;
-        // std::cout << input_processor.get() << std::endl;
+
         auto [parameters, led_vector] = input_processor->Process();
-        // std::cout << "2 2 2 2 2 2 2 2" << std::endl;
+
         this->PublishChangesToDevice(parameters, led_vector);
-        // std::cout << "---------------" << std::endl;
     }
 
     /**
