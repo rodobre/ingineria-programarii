@@ -234,6 +234,8 @@ Example request:
          --request POST \
          --data '{"input_type":"UserManualInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
          http://localhost:8080/iot
+         
+    //MISSING: UserProgrammableInput
 
     curl --header "Content-Type: application/json" \
          --request POST \
