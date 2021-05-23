@@ -17,8 +17,6 @@
 #include <string>
 #include <stdexcept>
 #include "device.hpp"
-// #include "include/httplib/httplib.h"
-// #include "include/nlohmann/json.hpp"
 
 const std::set< std::string > InputType = { 
     "UserManualInput", 
@@ -115,8 +113,6 @@ Example request:
          --request POST \
          --data '{"input_type":"UserManualInput","input":{"r":1,"g":1,"b":1,"intensity":1},"input_settings":"{}"}' \
          http://localhost:8080/iot
-         
-    //MISSING: UserProgrammableInput
 
     curl --header "Content-Type: application/json" \
          --request POST \
