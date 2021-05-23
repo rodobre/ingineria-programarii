@@ -85,12 +85,13 @@ public:
 
     void StartProcessingInputs()
     {
-        std::cout << "About to start a new thread" << std::endl;
         std::thread
         t2([](MqttSubscriber *ptr) -> void {
             ptr->Subscribe();
         },
            this);
-        t2.join();
+        // Cu join merge dar blocheaza, cu detach iei mumu
+        t2.detach();
+        // t2.join();
     }
 };

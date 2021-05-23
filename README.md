@@ -34,6 +34,14 @@ sudo cmake --build build/ --target install
 sudo ldconfig
 ```
 
+## MQTT Server
+
+Run `mosquitto -v` in terminal
+
+## MQTT Publisher
+
+Build `mqtt_publisher.cpp` and run it to send a JSON message to MQTT Server
+
 ## Building
 
 Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run `doxygen Doxyfile` to regenerate documentation

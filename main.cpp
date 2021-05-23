@@ -45,6 +45,13 @@ int main(void) {
     auto& ctx = AppContext::getInstance();
     ctx->StartProcessingInputs();
 
+    /* Create MQTT Subscriber */
+    // TODO: Roberte sa moara mama ca nu merge sa dai detach la threadul de la mqttSubscriber asta :( )
+    /* 
+    MqttSubscriber mqttSubscriber;
+    mqttSubscriber.StartProcessingInputs();
+    */
+
     /* Static folder handling */
     svr.set_mount_point("/static", "./static");
 
