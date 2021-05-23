@@ -23,8 +23,7 @@ using AppContextPtr = std::unique_ptr<AppContext, AppContextDeleter>;
  */
 struct BaseInputContextDeleter {
     void operator()(BaseInputContext * ptr) {
-        std::cout << "bag pla" << std::endl;
-        // delete ptr;
+        delete ptr;
     }
 };
 
@@ -140,6 +139,9 @@ public:
      */
     void PopInput()
     {
+        // if (this->input_queue.empty()) {
+            
+        // }
         input_queue.pop();
     }
 

@@ -376,6 +376,11 @@ public:
     std::tuple<AppParameters&, std::vector<LEDContext>&>
     Process()
     {
+        for (auto& led: led_vector) {
+            std::cout << (int) led.getRGB().getRed()   << ' ' << 
+                         (int) led.getRGB().getGreen() << ' ' <<
+                         (int) led.getRGB().getBlue()  << std::endl;
+        }
         return std::tie(parameters, led_vector);
     }
 };

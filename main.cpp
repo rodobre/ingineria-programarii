@@ -47,6 +47,7 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
     
     BaseInputContext * tmp = nullptr;
 
+    // No possible invalid type because of previous filtering....
     if (requestType == "UserManualInput") {
         tmp = dynamic_cast<BaseInputContext*>(
             new UserManualInputContext(parameters, std::move(tmpLedValues), true)
@@ -66,10 +67,9 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
         tmp = dynamic_cast<BaseInputContext*>(
             new MusicInputContext(parameters, std::move(tmpLedValues), true)
         );
-        tmp->Process();
-        std::cout << tmp << std::endl;
     }
     else if(requestType == "WeatherInput") {
+        
         tmp = dynamic_cast<BaseInputContext*>(
             new WeatherInputContext(parameters, std::move(tmpLedValues), true)
         );
@@ -87,7 +87,6 @@ BaseInputContextPtr buildContext(nlohmann::json requestJson, std::string request
     
     BaseInputContextPtr smartPtr(tmp);
     return smartPtr;
-    // No possible invalid type because of previous filtering....
 }
 
 /**
@@ -103,10 +102,25 @@ int main(void) {
 
     /* Application context instate */
     auto& ctx = AppContext::getInstance();
+    ctx->StartProcessingInputs();
+
     /* Static folder handling */
     svr.set_mount_point("/static", "./static");
-    ctx->StartProcessingInputs();
+
     /* Route to get reached by the IoT device */
+
+    svr.Post("/start", [&](const Request& req, Response& res) {
+        ctx->StartProcessingInputs();
+    });
+
+    svr.Post("/stop", [&](const Request& req, Response& res) {
+        ctx->Stop();
+    });
+
+    svr.Post("/previous-setting", [&](const Request& req, Response& res) {
+        ctx->PopInput();
+    });
+
     svr.Post("/iot", [&](const Request& req, Response& res) {
         
         json response;
@@ -147,19 +161,35 @@ int main(void) {
     svr.listen("0.0.0.0", 8080);
 }
 
-
 /*
 Example request:
-    curl --header "Content-Type: application/json" \
-         --request POST \
-         --data '{"input_type":"MusicInput","input":[12, 43, 1, 43, 54],"input_settings":"{}"}' \
-         http://localhost:8080/iot
-*/
-
-/*
-Example request:
+    Example /iot
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{"input_type":"MusicInput","input":[{"r":12,"g":34,"b":123,"intensity":1},{"r":43,"g":2,"b":123,"intensity":1},{"r":15,"g":14,"b":39,"intensity":1},{"r":96,"g":54,"b":90,"intensity":1}],"input_settings":"{}"}' \
          http://localhost:8080/iot
+
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{"input_type":"WeatherInput","input":[{"r":1,"g":1,"b":1,"intensity":1},{"r":2,"g":2,"b":2,"intensity":1},{"r":3,"g":3,"b":3,"intensity":1},{"r":4,"g":4,"b":4,"intensity":1}],"input_settings":"{}"}' \
+         http://localhost:8080/iot
+
+    Example /start
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{}' \
+         http://localhost:8080/start
+
+    Example /stop
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{}' \
+         http://localhost:8080/stop
+
+    Example /previous-setting
+    curl --header "Content-Type: application/json" \
+         --request POST \
+         --data '{}' \
+         http://localhost:8080/previous-setting
+
 */
