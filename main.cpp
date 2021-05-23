@@ -250,7 +250,6 @@ Example request:
          --data '{"input_type":"WeatherInput","input":{"temperature":12.5},"input_settings":"{}"}' \
          http://localhost:8080/iot
 
-
     curl --header "Content-Type: application/json" \
          --request POST \
          --data '{"input_type":"BrightnessInput","input":[{"intensity": 1},{"intensity": 2},{"intensity": 3},{"intensity": 4}],"input_settings":"{}"}' \
@@ -281,3 +280,4 @@ Example request:
          http://localhost:8080/previous-setting
 
 */
+
