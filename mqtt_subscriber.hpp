@@ -54,6 +54,10 @@ public:
 
                 if (msg)
                 {
+                    /* 
+                        TODO: Parse JSON like HTTP requests 
+                        Maybe we should create a function that parses json for both http and mqtt
+                    */
                     std::cout << msg->to_string() << std::endl;
                     json requestJson = json::parse(msg->to_string());
 
@@ -90,7 +94,6 @@ public:
             ptr->Subscribe();
         },
            this);
-        // Cu join merge dar blocheaza, cu detach iei mumu
         t2.detach();
         // t2.join();
     }
