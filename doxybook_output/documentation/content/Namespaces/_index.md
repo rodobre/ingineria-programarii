@@ -8,9 +8,10 @@ title: Namespaces
 
 
 
+* **namespace [std::chrono](namespaces/namespacestd_1_1chrono/)** 
 
 
 
 -------------------------------
 
-Updated on 19 February 2021 at 15:01:49 UTC
+Updated on 23 May 2021 at 21:54:47 UTC

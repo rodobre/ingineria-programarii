@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classMqttSubscriber" kind="class" language="C++" prot="public">
+    <compoundname>MqttSubscriber</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMqttSubscriber_1a1418991363c0a65e9db76f6c8dc3026f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MqttSubscriber::MqttSubscriber</definition>
+        <argsstring>()</argsstring>
+        <name>MqttSubscriber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mqtt_subscriber.hpp" line="20" column="1" bodyfile="mqtt_subscriber.hpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classMqttSubscriber_1a54d298e3ea6dc236847f654c67c5b0f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MqttSubscriber::~MqttSubscriber</definition>
+        <argsstring>()=default</argsstring>
+        <name>~MqttSubscriber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mqtt_subscriber.hpp" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classMqttSubscriber_1a1dc5293a63d0e9908ba6e2d067ad76d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MqttSubscriber::StartProcessingInputs</definition>
+        <argsstring>()</argsstring>
+        <name>StartProcessingInputs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mqtt_subscriber.hpp" line="152" column="1" bodyfile="mqtt_subscriber.hpp" bodystart="152" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classMqttSubscriber_1a583fdadde54af3df974d6804a9686d4b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MqttSubscriber::publishToThirdParty</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>publishToThirdParty</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mqtt_subscriber.hpp" line="26" column="1" bodyfile="mqtt_subscriber.hpp" bodystart="26" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classMqttSubscriber_1a4bca80e48ea35bae160daf395da0ab9b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MqttSubscriber::Subscribe</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>Subscribe</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mqtt_subscriber.hpp" line="55" column="1" bodyfile="mqtt_subscriber.hpp" bodystart="55" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mqtt_subscriber.hpp" line="18" column="1" bodyfile="mqtt_subscriber.hpp" bodystart="17" bodyend="157"/>
+    <listofallmembers>
+      <member refid="classMqttSubscriber_1a1418991363c0a65e9db76f6c8dc3026f" prot="public" virt="non-virtual"><scope>MqttSubscriber</scope><name>MqttSubscriber</name></member>
+      <member refid="classMqttSubscriber_1a583fdadde54af3df974d6804a9686d4b" prot="public" virt="non-virtual"><scope>MqttSubscriber</scope><name>publishToThirdParty</name></member>
+      <member refid="classMqttSubscriber_1a1dc5293a63d0e9908ba6e2d067ad76d0" prot="public" virt="non-virtual"><scope>MqttSubscriber</scope><name>StartProcessingInputs</name></member>
+      <member refid="classMqttSubscriber_1a4bca80e48ea35bae160daf395da0ab9b" prot="public" virt="non-virtual"><scope>MqttSubscriber</scope><name>Subscribe</name></member>
+      <member refid="classMqttSubscriber_1a54d298e3ea6dc236847f654c67c5b0f2" prot="public" virt="non-virtual"><scope>MqttSubscriber</scope><name>~MqttSubscriber</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

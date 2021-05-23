@@ -5,14 +5,54 @@
 Driver program for the project, exposes an H\+T\+TP server on port 8080 to handle A\+PI requests.  
 
 
-{\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include \char`\"{}include/httplib/httplib.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}include/nlohmann/json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include \char`\"{}device.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mqtt\+\_\+subscriber.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a70bb99d4d6c2e1a35c26a6c84222be7f}\label{main_8cpp_a70bb99d4d6c2e1a35c26a6c84222be7f}} 
+\#define {\bfseries I\+N\+P\+U\+T\+\_\+\+K\+EY}~\char`\"{}input\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_aaf1329031adc4fd484b6edc8abfd7434}\label{main_8cpp_aaf1329031adc4fd484b6edc8abfd7434}} 
+\#define {\bfseries I\+N\+P\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+K\+EY}~\char`\"{}input\+\_\+type\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_af2685dfc271d06adb84a0d94a31d0de3}\label{main_8cpp_af2685dfc271d06adb84a0d94a31d0de3}} 
+\#define {\bfseries I\+N\+P\+U\+T\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+K\+EY}~\char`\"{}input\+\_\+settings\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a35c11f02aa6db89430334483bd425831}\label{main_8cpp_a35c11f02aa6db89430334483bd425831}} 
+\#define {\bfseries O\+U\+T\+P\+U\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+K\+EY}~\char`\"{}error\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a6bb3b62d951dfd91bb84d00c6d4580ea}\label{main_8cpp_a6bb3b62d951dfd91bb84d00c6d4580ea}} 
+\#define {\bfseries O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+L\+I\+D\+\_\+\+K\+EY}~\char`\"{}valid\+\_\+request\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a3cdc10e08bf545f186ce9ddc0f347dc0}\label{main_8cpp_a3cdc10e08bf545f186ce9ddc0f347dc0}} 
+\#define {\bfseries I\+N\+V\+A\+L\+I\+D\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+B\+O\+DY}~\char`\"{}invalid\+\_\+request\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a20ec364faebf30a95ab7d9cad53f1f24}\label{main_8cpp_a20ec364faebf30a95ab7d9cad53f1f24}} 
+\#define {\bfseries B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+J\+S\+ON}~\char`\"{}request format isn\textquotesingle{}t correct\char`\"{}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \begin{DoxyCompactList}\small\item\em Main driver function of the program, runs an H\+T\+TP server on port 8080 to process incoming requests (blocking!) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::set$<$ std\+::string $>$ {\bfseries Input\+Type}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -34,3 +74,22 @@ Main driver function of the program, runs an H\+T\+TP server on port 8080 to pro
 \begin{DoxyReturn}{Returns}
 int -\/ status code 
 \end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a0320ad1b70d522baab095239e6454546}\label{main_8cpp_a0320ad1b70d522baab095239e6454546}} 
+\index{main.\+cpp@{main.\+cpp}!Input\+Type@{Input\+Type}}
+\index{Input\+Type@{Input\+Type}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{Input\+Type}{InputType}}
+{\footnotesize\ttfamily const std\+::set$<$std\+::string$>$ Input\+Type}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"UserManualInput"},
+    \textcolor{stringliteral}{"DisplayInput"},
+    \textcolor{stringliteral}{"MusicInput"},
+    \textcolor{stringliteral}{"WeatherInput"},
+    \textcolor{stringliteral}{"BrightnessInput"},
+    \textcolor{stringliteral}{"RandomInput"}\}
+\end{DoxyCode}

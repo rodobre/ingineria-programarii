@@ -1,7 +1,161 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classAppContext" kind="class"><name>AppContext</name>
+    <member refid="classAppContext_1ae32c469fc0ecf67e94f0c31aaaa0a26c" kind="typedef"><name>BaseInputContextPtrVector</name></member>
+    <member refid="classAppContext_1a3eca6552a76960a44ef5b7acf8354a62" kind="variable"><name>instance</name></member>
+    <member refid="classAppContext_1a031afce29f1e31f49febfdd15bdea169" kind="variable"><name>input_queue</name></member>
+    <member refid="classAppContext_1a12014aa644e2ccd35e2aeb47050ed158" kind="variable"><name>context_active</name></member>
+    <member refid="classAppContext_1a805b01d1f5e65d1793891b375877b61c" kind="variable"><name>sleep_interval</name></member>
+    <member refid="classAppContext_1adc00fd052b303af14301c194cce2b25f" kind="variable"><name>settings</name></member>
+    <member refid="classAppContext_1acbbcd910e22c12d8c7325a3f95622b78" kind="function"><name>AppContext</name></member>
+    <member refid="classAppContext_1a0e2187f63f324e29a23f28d1151474f1" kind="function"><name>~AppContext</name></member>
+    <member refid="classAppContext_1a6a3fe5f796a107e125c3acaed0c8d540" kind="function"><name>getInstance</name></member>
+    <member refid="classAppContext_1a4688a40ae16907f475d447e24ca1c1a0" kind="function"><name>publishToThirdParty</name></member>
+    <member refid="classAppContext_1a273e111ce95ba5bfdda899c11472609d" kind="function"><name>AddInput</name></member>
+    <member refid="classAppContext_1a7830bb8450df62a5d3f04f4b8c02d408" kind="function"><name>TopQueue</name></member>
+    <member refid="classAppContext_1aa881b9f705c7fd51c34e68c4c2a0b503" kind="function"><name>PopInput</name></member>
+    <member refid="classAppContext_1a111c4cd1df3382d9f52e700e579bceb5" kind="function"><name>ProcessQueue</name></member>
+    <member refid="classAppContext_1a9db79afff28d55fdcff4194befb585c7" kind="function"><name>PublishChangesToDevice</name></member>
+    <member refid="classAppContext_1a522fe0c95875b044bb1a8b30c20d589e" kind="function"><name>StartProcessingInputs</name></member>
+    <member refid="classAppContext_1a2e618358872ff3844751f02a14bb81fb" kind="function"><name>Stop</name></member>
+  </compound>
+  <compound refid="structAppParameters" kind="struct"><name>AppParameters</name>
+    <member refid="structAppParameters_1a81ba7491c03de963b16decf6a7684905" kind="variable"><name>DeviceName</name></member>
+    <member refid="structAppParameters_1a70f89a3f1aa1decd5746080438c93e84" kind="function"><name>AppParameters</name></member>
+    <member refid="structAppParameters_1af57a6cb625e39067c6549c57a6687515" kind="function"><name>AppParameters</name></member>
+  </compound>
+  <compound refid="classBaseInputContext" kind="class"><name>BaseInputContext</name>
+    <member refid="classBaseInputContext_1a5fdbf0449f1db374d967fd5fe9f6d429" kind="variable"><name>parameters</name></member>
+    <member refid="classBaseInputContext_1afbc4885e5ffea25ca766188ba74365dc" kind="variable"><name>led_vector</name></member>
+    <member refid="classBaseInputContext_1ad8596def18b875e990a9097ecbc1f60f" kind="variable"><name>input_type</name></member>
+    <member refid="classBaseInputContext_1afc497040a6a6b44f3d753df6f0d70721" kind="variable"><name>active</name></member>
+    <member refid="classBaseInputContext_1ae8e1690d7e2f6b52b63ac3b222dd4f70" kind="function"><name>BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1a7d8ee828f7bf345c42654d2d35c6b54b" kind="function"><name>BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1ab01c79b8298af7d22cca34d4cee4ed32" kind="function"><name>BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1a2a2342b849914cdad5e5fafb985198fe" kind="function"><name>BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1a766e7f1c9c02069dec98870c84939d1e" kind="function"><name>BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1a0c3354b22b4f98a9f29f0b8caff28593" kind="function"><name>operator=</name></member>
+    <member refid="classBaseInputContext_1a63d4e572f54a59ee4fb045e066eaa132" kind="function"><name>operator=</name></member>
+    <member refid="classBaseInputContext_1ab21b1683db227e049186d794909a5bc0" kind="function"><name>~BaseInputContext</name></member>
+    <member refid="classBaseInputContext_1a307ef6df7438b9ee911b190808b83e1f" kind="function"><name>Process</name></member>
+    <member refid="classBaseInputContext_1a4caeb00d25a397c8e7d699cd12326d89" kind="function"><name>GetInputType</name></member>
+    <member refid="classBaseInputContext_1a990115f776002c595e3db3672301717d" kind="function"><name>GetLedVector</name></member>
+    <member refid="classBaseInputContext_1a3bbc32088faaf895d3cf1503bac2fb2f" kind="function"><name>GetAppParameters</name></member>
+    <member refid="classBaseInputContext_1ae6cc650533200b4f4c5f9c5dfdd19023" kind="function"><name>IsActive</name></member>
+    <member refid="classBaseInputContext_1a3e3c544f5658e379a71228680a05b700" kind="function"><name>SetAppParameters</name></member>
+    <member refid="classBaseInputContext_1a31b87d03f2c28333e2b2a0bd746746d5" kind="function"><name>SetActive</name></member>
+  </compound>
+  <compound refid="structBaseInputContextDeleter" kind="struct"><name>BaseInputContextDeleter</name>
+    <member refid="structBaseInputContextDeleter_1a4b9dd10f3b0edfc8d8f5691180088118" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="structBrightnessData" kind="struct"><name>BrightnessData</name>
+    <member refid="structBrightnessData_1a84d67142636cadb91fd68e709fcdd0bf" kind="variable"><name>intensityVector</name></member>
+    <member refid="structBrightnessData_1a6ed915c802c53a45cbbe3157ddabe329" kind="function"><name>BrightnessData</name></member>
+  </compound>
+  <compound refid="classBrightnessInputContext" kind="class"><name>BrightnessInputContext</name>
+    <member refid="classBrightnessInputContext_1ab3ffda8de7974342ffc7b8bfa9147c93" kind="variable"><name>brightnessData</name></member>
+    <member refid="classBrightnessInputContext_1a152a2a28efc12b3f4c9461dcadfebfe7" kind="function"><name>BrightnessInputContext</name></member>
+    <member refid="classBrightnessInputContext_1abed6703d2d678ba74efdd635b5e39104" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="classDisplayInputContext" kind="class"><name>DisplayInputContext</name>
+    <member refid="classDisplayInputContext_1a5f5294995529afa72f09b86423a9cd8b" kind="function"><name>DisplayInputContext</name></member>
+    <member refid="classDisplayInputContext_1a311ae1f786cf44daa1945bd1bd22caa6" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="classLEDContext" kind="class"><name>LEDContext</name>
+    <member refid="classLEDContext_1a5a83c38b57f50a793a97a526905fb64d" kind="variable"><name>intensity</name></member>
+    <member refid="classLEDContext_1a571c00b7ee573eba5c467a58e4bff538" kind="variable"><name>rgb</name></member>
+    <member refid="classLEDContext_1a3bfa7edcdb7522b710f30fe0cd416b35" kind="variable"><name>visible</name></member>
+    <member refid="classLEDContext_1a0df5e4e2826e05b6b8b43b13444391b3" kind="function"><name>LEDContext</name></member>
+    <member refid="classLEDContext_1a595fe959a611f75c6791ab40b1fb5dc0" kind="function"><name>LEDContext</name></member>
+    <member refid="classLEDContext_1a341d5800ea8fefee47326c9a78e909ec" kind="function"><name>LEDContext</name></member>
+    <member refid="classLEDContext_1a774a2e7001b38ed6bc74d721bc97715a" kind="function"><name>getRGB</name></member>
+  </compound>
+  <compound refid="classMqttSubscriber" kind="class"><name>MqttSubscriber</name>
+    <member refid="classMqttSubscriber_1a1418991363c0a65e9db76f6c8dc3026f" kind="function"><name>MqttSubscriber</name></member>
+    <member refid="classMqttSubscriber_1a54d298e3ea6dc236847f654c67c5b0f2" kind="function"><name>~MqttSubscriber</name></member>
+    <member refid="classMqttSubscriber_1a1dc5293a63d0e9908ba6e2d067ad76d0" kind="function"><name>StartProcessingInputs</name></member>
+    <member refid="classMqttSubscriber_1a583fdadde54af3df974d6804a9686d4b" kind="function"><name>publishToThirdParty</name></member>
+    <member refid="classMqttSubscriber_1a4bca80e48ea35bae160daf395da0ab9b" kind="function"><name>Subscribe</name></member>
+  </compound>
+  <compound refid="structMusicData" kind="struct"><name>MusicData</name>
+    <member refid="structMusicData_1a172fa273494c06fd7c1ce0ebb7375264" kind="variable"><name>frequencyVector</name></member>
+    <member refid="structMusicData_1aea401e148e5615e4eb1bd39154d9f0b4" kind="function"><name>MusicData</name></member>
+  </compound>
+  <compound refid="classMusicInputContext" kind="class"><name>MusicInputContext</name>
+    <member refid="classMusicInputContext_1a3c755e21e6155c3e73f095632480f563" kind="variable"><name>musicData</name></member>
+    <member refid="classMusicInputContext_1a3a684341715ba5a6db949843564d8bae" kind="function"><name>MusicInputContext</name></member>
+    <member refid="classMusicInputContext_1a3ebc756c72a1f7978f00ff10141291c8" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="classRandomInputContext" kind="class"><name>RandomInputContext</name>
+    <member refid="classRandomInputContext_1ab2747e77324ec4e5dec7c19bbe8711bf" kind="function"><name>RandomInputContext</name></member>
+    <member refid="classRandomInputContext_1a19ab176510befce3e8f029cd946081f6" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="structRGB" kind="struct"><name>RGB</name>
+    <member refid="structRGB_1a8ea970fcd312802ef238733b1c9ed63d" kind="variable"><name>r</name></member>
+    <member refid="structRGB_1a3595e9a2ed44c815153aff4e84e2d97c" kind="variable"><name>g</name></member>
+    <member refid="structRGB_1ab2a3ac761d61594e2c51d65347a74017" kind="variable"><name>b</name></member>
+    <member refid="structRGB_1ac82f37558b845c294de41eb2558c6619" kind="function"><name>RGB</name></member>
+    <member refid="structRGB_1ae5c6f8e87d889304b591d841ed635ec9" kind="function"><name>RGB</name></member>
+    <member refid="structRGB_1adf1461c8cdffc074a2e019dc9d1f3bc1" kind="function"><name>RGB</name></member>
+    <member refid="structRGB_1a4a5e452c99048fbf1c71e2983794a982" kind="function"><name>getRed</name></member>
+    <member refid="structRGB_1a1744e7db1a6f3f7aa527c7c892ac422b" kind="function"><name>getGreen</name></member>
+    <member refid="structRGB_1a641b32101c60fc25ef1f91be5ae0264c" kind="function"><name>getBlue</name></member>
+  </compound>
+  <compound refid="structUserManualData" kind="struct"><name>UserManualData</name>
+    <member refid="structUserManualData_1aec74f70aeef43227b6b1a494333687df" kind="variable"><name>led</name></member>
+    <member refid="structUserManualData_1a598240dc298cc519dffc1a73c9c911cb" kind="function"><name>UserManualData</name></member>
+  </compound>
+  <compound refid="classUserManualInputContext" kind="class"><name>UserManualInputContext</name>
+    <member refid="classUserManualInputContext_1a957f4a1c9ed082b8694cc58c7fc74d95" kind="variable"><name>userManualData</name></member>
+    <member refid="classUserManualInputContext_1a3ee58341cb01d323935413b9b5cb80f2" kind="function"><name>UserManualInputContext</name></member>
+    <member refid="classUserManualInputContext_1aac7943547f0441ae5f2391985650b393" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="structWeatherData" kind="struct"><name>WeatherData</name>
+    <member refid="structWeatherData_1a9b81dcf968ae2f54d349ffc3101b6fdd" kind="variable"><name>temperature</name></member>
+    <member refid="structWeatherData_1a9775ece73c6ac6082cf7edba50e4bd47" kind="function"><name>WeatherData</name></member>
+  </compound>
+  <compound refid="classWeatherInputContext" kind="class"><name>WeatherInputContext</name>
+    <member refid="classWeatherInputContext_1a0794de17a667f3dac4c208a20aacad84" kind="variable"><name>weatherData</name></member>
+    <member refid="classWeatherInputContext_1aed3db9e07794a5a475137b36d1356209" kind="function"><name>WeatherInputContext</name></member>
+    <member refid="classWeatherInputContext_1ad25230f426a5f5cacb527aea75e6ccc6" kind="function"><name>Process</name></member>
+  </compound>
+  <compound refid="namespacestd_1_1chrono" kind="namespace"><name>std::chrono</name>
+  </compound>
+  <compound refid="device_8hpp" kind="file"><name>device.hpp</name>
+    <member refid="device_8hpp_1aa5b949bc6f830740f760782c2dcfc2df" kind="define"><name>NEW_INPUT</name></member>
+    <member refid="device_8hpp_1a40c937b3d135ac071e5dff71496fad1c" kind="define"><name>POP_INPUT</name></member>
+    <member refid="device_8hpp_1a0a7a029f6cc5d23573b46abe16a0874d" kind="typedef"><name>AppContextDeleter</name></member>
+    <member refid="device_8hpp_1a5c6a2b2c97815cf4c610a0c8a89ea208" kind="typedef"><name>AppContextPtr</name></member>
+    <member refid="device_8hpp_1aa7ed97fcab433a6556c52c764dbb7043" kind="typedef"><name>BaseInputContextPtr</name></member>
+    <member refid="device_8hpp_1a95be62871ba8fdde9cd60d72d0c7aa64" kind="function"><name>buildContext</name></member>
+  </compound>
+  <compound refid="inputcontext_8hpp" kind="file"><name>inputcontext.hpp</name>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261" kind="enum"><name>InputTypes</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261a3f5edd29cc420da04a815f22ebcf2eeb" kind="enumvalue"><name>UserManualInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261aca236ac633fc000fbdf8ffe7dab3b844" kind="enumvalue"><name>DisplayInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261a6db46b946acf865216e63da108f08dac" kind="enumvalue"><name>MusicInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261aae533358f30af564b72db921af101a1f" kind="enumvalue"><name>WeatherInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261a0e52e02468d81eba6e925b6e8f894399" kind="enumvalue"><name>BrightnessInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261a5ec996ef58bc4f5f085fc3d627648128" kind="enumvalue"><name>RandomInput</name></member>
+    <member refid="inputcontext_8hpp_1af4789bd72e7b14daae9ed61dbc059261adcf676c431cbef0e0c54269ac3c87e80" kind="enumvalue"><name>UnassignedInput</name></member>
+  </compound>
   <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a70bb99d4d6c2e1a35c26a6c84222be7f" kind="define"><name>INPUT_KEY</name></member>
+    <member refid="main_8cpp_1aaf1329031adc4fd484b6edc8abfd7434" kind="define"><name>INPUT_TYPE_KEY</name></member>
+    <member refid="main_8cpp_1af2685dfc271d06adb84a0d94a31d0de3" kind="define"><name>INPUT_SETTINGS_KEY</name></member>
+    <member refid="main_8cpp_1a35c11f02aa6db89430334483bd425831" kind="define"><name>OUTPUT_ERROR_KEY</name></member>
+    <member refid="main_8cpp_1a6bb3b62d951dfd91bb84d00c6d4580ea" kind="define"><name>OUTPUT_VALID_KEY</name></member>
+    <member refid="main_8cpp_1a3cdc10e08bf545f186ce9ddc0f347dc0" kind="define"><name>INVALID_REQUEST_BODY</name></member>
+    <member refid="main_8cpp_1a20ec364faebf30a95ab7d9cad53f1f24" kind="define"><name>BAD_REQUEST_JSON</name></member>
+    <member refid="main_8cpp_1a0320ad1b70d522baab095239e6454546" kind="variable"><name>InputType</name></member>
     <member refid="main_8cpp_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="mqtt__publisher_8cpp" kind="file"><name>mqtt_publisher.cpp</name>
+    <member refid="mqtt__publisher_8cpp_1ae2b7127195c17ef16aa68d75234914d6" kind="function"><name>mqttExample</name></member>
+    <member refid="mqtt__publisher_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="mqtt__subscriber_8hpp" kind="file"><name>mqtt_subscriber.hpp</name>
+    <member refid="mqtt__subscriber_8hpp_1a1fea3b64e2be0c2b4dbac7016171d883" kind="variable"><name>TOPIC</name></member>
   </compound>
   <compound refid="README_8md" kind="file"><name>README.md</name>
   </compound>

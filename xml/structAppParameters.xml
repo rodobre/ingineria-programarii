@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structAppParameters" kind="struct" language="C++" prot="public">
+    <compoundname>AppParameters</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structAppParameters_1a81ba7491c03de963b16decf6a7684905" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string AppParameters::DeviceName</definition>
+        <argsstring></argsstring>
+        <name>DeviceName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="113" column="1" bodyfile="inputcontext.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structAppParameters_1a70f89a3f1aa1decd5746080438c93e84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AppParameters::AppParameters</definition>
+        <argsstring>()</argsstring>
+        <name>AppParameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="115" column="1" bodyfile="inputcontext.hpp" bodystart="115" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="structAppParameters_1af57a6cb625e39067c6549c57a6687515" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AppParameters::AppParameters</definition>
+        <argsstring>(std::string DeviceName)</argsstring>
+        <name>AppParameters</name>
+        <param>
+          <type>std::string</type>
+          <declname>DeviceName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="121" column="1" bodyfile="inputcontext.hpp" bodystart="121" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Singleton application parameters. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inputcontext.hpp" line="112" column="1" bodyfile="inputcontext.hpp" bodystart="111" bodyend="126"/>
+    <listofallmembers>
+      <member refid="structAppParameters_1a70f89a3f1aa1decd5746080438c93e84" prot="public" virt="non-virtual"><scope>AppParameters</scope><name>AppParameters</name></member>
+      <member refid="structAppParameters_1af57a6cb625e39067c6549c57a6687515" prot="public" virt="non-virtual"><scope>AppParameters</scope><name>AppParameters</name></member>
+      <member refid="structAppParameters_1a81ba7491c03de963b16decf6a7684905" prot="public" virt="non-virtual"><scope>AppParameters</scope><name>DeviceName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

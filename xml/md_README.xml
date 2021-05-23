@@ -4,8 +4,33 @@
     <compoundname>md_README</compoundname>
     <title>Dependencies</title>
     <detaileddescription>
-<para>Install apt packages with the versioning provided in <computeroutput>system_requirements.MD</computeroutput></para><para><heading level="2">Building</heading>
+<para>Install apt packages with the versioning provided in <computeroutput>system_requirements.MD</computeroutput></para><para>Install Mosquitto</para><para><programlisting><codeline><highlight class="normal">sudo<sp/>apt-add-repository<sp/>ppa:mosquitto-dev/mosquitto-ppa</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt<sp/>update</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt<sp/>install<sp/>mosquitto</highlight></codeline>
+</programlisting></para><para>Install Paho</para><para><programlisting><codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>build-essential<sp/>gcc<sp/>make<sp/>cmake<sp/>cmake-gui<sp/>cmake-curses-gui</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>libssl-dev</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/eclipse/paho.mqtt.c.git</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>paho.mqtt.c</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>checkout<sp/>v1.3.8</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-Bbuild<sp/>-H.<sp/>-DPAHO_ENABLE_TESTING=OFF<sp/>-DPAHO_BUILD_STATIC=ON<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-DPAHO_WITH_SSL=ON<sp/>-DPAHO_HIGH_PERFORMANCE=ON</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>cmake<sp/>--build<sp/>build/<sp/>--target<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>ldconfig</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/eclipse/paho.mqtt.cpp</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>paho.mqtt.cpp</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-Bbuild<sp/>-H.<sp/>-DPAHO_BUILD_STATIC=ON<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-DPAHO_BUILD_DOCUMENTATION=TRUE<sp/>-DPAHO_BUILD_SAMPLES=TRUE</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>cmake<sp/>--build<sp/>build/<sp/>--target<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>ldconfig</highlight></codeline>
+</programlisting></para><para><heading level="2">MQTT Server</heading>
+</para><para>Run <computeroutput>mosquitto -v</computeroutput> in terminal</para><para><heading level="2">MQTT Publisher</heading>
+</para><para>Build <computeroutput>mqtt_publisher.cpp</computeroutput> and run it to send a JSON message to MQTT Server</para><para><heading level="2">Building</heading>
 </para><para>Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run <computeroutput>doxygen Doxyfile</computeroutput> to regenerate documentation</para><para><heading level="2">Better visuals, better documentation</heading>
-</para><para>For better visuals, install <computeroutput>hugo</computeroutput> and run <computeroutput>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</computeroutput>. The, navigate to documentation using <computeroutput>cd doxybook_output/documentation</computeroutput> and run <computeroutput>hugo serve</computeroutput>. </para>    </detaileddescription>
+</para><para>For better visuals, install <computeroutput>hugo</computeroutput> and run <computeroutput>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</computeroutput>. The, navigate to documentation using <computeroutput>cd doxybook_output/documentation</computeroutput> and run <computeroutput>hugo serve</computeroutput>.</para><para><heading level="2">Running</heading>
+</para><para>Run <computeroutput>mosquitto -v</computeroutput> in terminal. After building with build.sh, run /build/main. This will open HTTP (port 8080) and MQTT (port 1883, topic &quot;LED&quot;) input buffers. You can modify <computeroutput>mqtt_publisher.cpp</computeroutput> to publish different JSONs to the client, or use any other MQTT Client to publish messages to topic &quot;LED&quot;. You can send JSONs through CURL that match the regex in the documentation to change LED state. </para>    </detaileddescription>
   </compounddef>
 </doxygen>

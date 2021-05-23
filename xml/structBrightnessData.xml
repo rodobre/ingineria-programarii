@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structBrightnessData" kind="struct" language="C++" prot="public">
+    <compoundname>BrightnessData</compoundname>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structBrightnessData_1a84d67142636cadb91fd68e709fcdd0bf" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned char &gt;</type>
+        <definition>std::vector&lt;unsigned char&gt; BrightnessData::intensityVector</definition>
+        <argsstring></argsstring>
+        <name>intensityVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="178" column="1" bodyfile="inputcontext.hpp" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structBrightnessData_1a6ed915c802c53a45cbbe3157ddabe329" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BrightnessData::BrightnessData</definition>
+        <argsstring>(std::vector&lt; unsigned char &gt; &amp;&amp;intensityVector)</argsstring>
+        <name>BrightnessData</name>
+        <param>
+          <type>std::vector&lt; unsigned char &gt; &amp;&amp;</type>
+          <declname>intensityVector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="180" column="1" bodyfile="inputcontext.hpp" bodystart="180" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Data used for parsing the Brightness input. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inputcontext.hpp" line="177" column="1" bodyfile="inputcontext.hpp" bodystart="176" bodyend="186"/>
+    <listofallmembers>
+      <member refid="structBrightnessData_1a6ed915c802c53a45cbbe3157ddabe329" prot="public" virt="non-virtual"><scope>BrightnessData</scope><name>BrightnessData</name></member>
+      <member refid="structBrightnessData_1a84d67142636cadb91fd68e709fcdd0bf" prot="public" virt="non-virtual"><scope>BrightnessData</scope><name>intensityVector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

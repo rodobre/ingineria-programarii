@@ -1,0 +1,71 @@
+\hypertarget{classAppContext}{}\section{App\+Context Class Reference}
+\label{classAppContext}\index{App\+Context@{App\+Context}}
+
+
+Singleton application context.  
+
+
+
+
+{\ttfamily \#include $<$device.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppContext_a273e111ce95ba5bfdda899c11472609d}\label{classAppContext_a273e111ce95ba5bfdda899c11472609d}} 
+void \hyperlink{classAppContext_a273e111ce95ba5bfdda899c11472609d}{Add\+Input} (Base\+Input\+Context\+Ptr \&\&input\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Enqueue an item in to the priority queue, comparison done via custom functor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppContext_a7830bb8450df62a5d3f04f4b8c02d408}\label{classAppContext_a7830bb8450df62a5d3f04f4b8c02d408}} 
+const Base\+Input\+Context\+Ptr \& \hyperlink{classAppContext_a7830bb8450df62a5d3f04f4b8c02d408}{Top\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Peek the top of the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppContext_aa881b9f705c7fd51c34e68c4c2a0b503}\label{classAppContext_aa881b9f705c7fd51c34e68c4c2a0b503}} 
+void \hyperlink{classAppContext_aa881b9f705c7fd51c34e68c4c2a0b503}{Pop\+Input} ()
+\begin{DoxyCompactList}\small\item\em Pop the input on top. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppContext_a111c4cd1df3382d9f52e700e579bceb5}\label{classAppContext_a111c4cd1df3382d9f52e700e579bceb5}} 
+void \hyperlink{classAppContext_a111c4cd1df3382d9f52e700e579bceb5}{Process\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Process input -\/ pass execution context to input context with highest priority. \end{DoxyCompactList}\item 
+void \hyperlink{classAppContext_a9db79afff28d55fdcff4194befb585c7}{Publish\+Changes\+To\+Device} (const \hyperlink{structAppParameters}{App\+Parameters} \&parameters, const std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ \&led\+\_\+vector) noexcept
+\begin{DoxyCompactList}\small\item\em Publish recently made changes to the controlled device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppContext_a522fe0c95875b044bb1a8b30c20d589e}\label{classAppContext_a522fe0c95875b044bb1a8b30c20d589e}} 
+void \hyperlink{classAppContext_a522fe0c95875b044bb1a8b30c20d589e}{Start\+Processing\+Inputs} ()
+\begin{DoxyCompactList}\small\item\em Start processing the inputs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppContext_a2e618358872ff3844751f02a14bb81fb}\label{classAppContext_a2e618358872ff3844751f02a14bb81fb}} 
+void \hyperlink{classAppContext_a2e618358872ff3844751f02a14bb81fb}{Stop} ()
+\begin{DoxyCompactList}\small\item\em Stop processing inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppContext_a6a3fe5f796a107e125c3acaed0c8d540}\label{classAppContext_a6a3fe5f796a107e125c3acaed0c8d540}} 
+static App\+Context\+Ptr \& {\bfseries get\+Instance} ()
+\item 
+\mbox{\Hypertarget{classAppContext_a4688a40ae16907f475d447e24ca1c1a0}\label{classAppContext_a4688a40ae16907f475d447e24ca1c1a0}} 
+static void \hyperlink{classAppContext_a4688a40ae16907f475d447e24ca1c1a0}{publish\+To\+Third\+Party} (std\+::string message)
+\begin{DoxyCompactList}\small\item\em Sends a request with metadata to a third party. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Singleton application context. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAppContext_a9db79afff28d55fdcff4194befb585c7}\label{classAppContext_a9db79afff28d55fdcff4194befb585c7}} 
+\index{App\+Context@{App\+Context}!Publish\+Changes\+To\+Device@{Publish\+Changes\+To\+Device}}
+\index{Publish\+Changes\+To\+Device@{Publish\+Changes\+To\+Device}!App\+Context@{App\+Context}}
+\subsubsection{\texorpdfstring{Publish\+Changes\+To\+Device()}{PublishChangesToDevice()}}
+{\footnotesize\ttfamily void App\+Context\+::\+Publish\+Changes\+To\+Device (\begin{DoxyParamCaption}\item[{const \hyperlink{structAppParameters}{App\+Parameters} \&}]{parameters,  }\item[{const std\+::vector$<$ \hyperlink{classLEDContext}{L\+E\+D\+Context} $>$ \&}]{led\+\_\+vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Publish recently made changes to the controlled device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & Structure of application parameters \\
+\hline
+{\em led\+\_\+vector} & Array of L\+ED vectors, internally managed by the input context \\
+\hline
+\end{DoxyParams}
+Dummy function, simulate publishing changes to device
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+device.\+hpp\end{DoxyCompactItemize}

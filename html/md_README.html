@@ -63,10 +63,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Install apt packages with the versioning provided in <code>system_requirements.MD</code></p>
+<p>Install Mosquitto</p>
+<div class="fragment"><div class="line">sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa</div><div class="line">sudo apt update</div><div class="line">sudo apt install mosquitto</div></div><!-- fragment --><p>Install Paho</p>
+<div class="fragment"><div class="line">sudo apt-get install build-essential gcc make cmake cmake-gui cmake-curses-gui</div><div class="line">sudo apt-get install libssl-dev</div><div class="line"></div><div class="line"></div><div class="line">git clone https://github.com/eclipse/paho.mqtt.c.git</div><div class="line">cd paho.mqtt.c</div><div class="line">git checkout v1.3.8</div><div class="line">cmake -Bbuild -H. -DPAHO_ENABLE_TESTING=OFF -DPAHO_BUILD_STATIC=ON \</div><div class="line">    -DPAHO_WITH_SSL=ON -DPAHO_HIGH_PERFORMANCE=ON</div><div class="line">sudo cmake --build build/ --target install</div><div class="line">sudo ldconfig</div><div class="line"></div><div class="line"></div><div class="line">git clone https://github.com/eclipse/paho.mqtt.cpp</div><div class="line">cd paho.mqtt.cpp</div><div class="line">cmake -Bbuild -H. -DPAHO_BUILD_STATIC=ON \</div><div class="line">    -DPAHO_BUILD_DOCUMENTATION=TRUE -DPAHO_BUILD_SAMPLES=TRUE</div><div class="line">sudo cmake --build build/ --target install</div><div class="line">sudo ldconfig</div></div><!-- fragment --><h2>MQTT Server</h2>
+<p>Run <code>mosquitto -v</code> in terminal</p>
+<h2>MQTT Publisher</h2>
+<p>Build <code>mqtt_publisher.cpp</code> and run it to send a JSON message to MQTT Server</p>
 <h2>Building</h2>
 <p>Build by executing build.sh on Linux (Debian/Ubuntu/CentOS RHEL), run <code>doxygen Doxyfile</code> to regenerate documentation</p>
 <h2>Better visuals, better documentation</h2>
-<p>For better visuals, install <code>hugo</code> and run <code>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</code>. The, navigate to documentation using <code>cd doxybook_output/documentation</code> and run <code>hugo serve</code>. </p>
+<p>For better visuals, install <code>hugo</code> and run <code>./doxybook2 --input xml/ --output doxybook_output/documentation/content --config .doxybook/config.json --templates .doxybook/templates/</code>. The, navigate to documentation using <code>cd doxybook_output/documentation</code> and run <code>hugo serve</code>.</p>
+<h2>Running</h2>
+<p>Run <code>mosquitto -v</code> in terminal. After building with build.sh, run /build/main. This will open HTTP (port 8080) and MQTT (port 1883, topic "LED") input buffers. You can modify <code>mqtt_publisher.cpp</code> to publish different JSONs to the client, or use any other MQTT Client to publish messages to topic "LED". You can send JSONs through CURL that match the regex in the documentation to change LED state. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

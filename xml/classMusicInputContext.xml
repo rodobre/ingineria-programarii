@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classMusicInputContext" kind="class" language="C++" prot="public">
+    <compoundname>MusicInputContext</compoundname>
+    <basecompoundref refid="classBaseInputContext" prot="public" virt="non-virtual">BaseInputContext</basecompoundref>
+    <includes refid="inputcontext_8hpp" local="no">inputcontext.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMusicInputContext_1a3c755e21e6155c3e73f095632480f563" prot="private" static="no" mutable="no">
+        <type><ref refid="structMusicData" kindref="compound">MusicData</ref></type>
+        <definition>MusicData MusicInputContext::musicData</definition>
+        <argsstring></argsstring>
+        <name>musicData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="389" column="1" bodyfile="inputcontext.hpp" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMusicInputContext_1a3a684341715ba5a6db949843564d8bae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MusicInputContext::MusicInputContext</definition>
+        <argsstring>(AppParameters parameters, MusicData musicData, bool active)</argsstring>
+        <name>MusicInputContext</name>
+        <param>
+          <type><ref refid="structAppParameters" kindref="compound">AppParameters</ref></type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type><ref refid="structMusicData" kindref="compound">MusicData</ref></type>
+          <declname>musicData</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="392" column="1" bodyfile="inputcontext.hpp" bodystart="392" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="classMusicInputContext_1a3ebc756c72a1f7978f00ff10141291c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::tuple&lt; <ref refid="structAppParameters" kindref="compound">AppParameters</ref> &amp;, std::vector&lt; <ref refid="classLEDContext" kindref="compound">LEDContext</ref> &gt; &amp; &gt;</type>
+        <definition>std::tuple&lt;AppParameters&amp;, std::vector&lt;LEDContext&gt;&amp;&gt; MusicInputContext::Process</definition>
+        <argsstring>()</argsstring>
+        <name>Process</name>
+        <reimplements refid="classBaseInputContext_1a307ef6df7438b9ee911b190808b83e1f">Process</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inputcontext.hpp" line="404" column="1" bodyfile="inputcontext.hpp" bodystart="404" bodyend="423"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Input context class for music input. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="33">
+        <label>MusicInputContext</label>
+        <link refid="classMusicInputContext"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="35">
+        <label>MusicInputContext</label>
+        <link refid="classMusicInputContext"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>AppParameters</label>
+        <link refid="structAppParameters"/>
+      </node>
+      <node id="36">
+        <label>BaseInputContext</label>
+        <link refid="classBaseInputContext"/>
+        <childnode refid="37" relation="usage">
+          <edgelabel>parameters</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="inputcontext.hpp" line="388" column="1" bodyfile="inputcontext.hpp" bodystart="387" bodyend="424"/>
+    <listofallmembers>
+      <member refid="classBaseInputContext_1afc497040a6a6b44f3d753df6f0d70721" prot="protected" virt="non-virtual"><scope>MusicInputContext</scope><name>active</name></member>
+      <member refid="classBaseInputContext_1ae8e1690d7e2f6b52b63ac3b222dd4f70" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a7d8ee828f7bf345c42654d2d35c6b54b" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1ab01c79b8298af7d22cca34d4cee4ed32" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a2a2342b849914cdad5e5fafb985198fe" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a766e7f1c9c02069dec98870c84939d1e" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>BaseInputContext</name></member>
+      <member refid="classBaseInputContext_1a3bbc32088faaf895d3cf1503bac2fb2f" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>GetAppParameters</name></member>
+      <member refid="classBaseInputContext_1a4caeb00d25a397c8e7d699cd12326d89" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>GetInputType</name></member>
+      <member refid="classBaseInputContext_1a990115f776002c595e3db3672301717d" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>GetLedVector</name></member>
+      <member refid="classBaseInputContext_1ad8596def18b875e990a9097ecbc1f60f" prot="protected" virt="non-virtual"><scope>MusicInputContext</scope><name>input_type</name></member>
+      <member refid="classBaseInputContext_1ae6cc650533200b4f4c5f9c5dfdd19023" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>IsActive</name></member>
+      <member refid="classBaseInputContext_1afbc4885e5ffea25ca766188ba74365dc" prot="protected" virt="non-virtual"><scope>MusicInputContext</scope><name>led_vector</name></member>
+      <member refid="classMusicInputContext_1a3c755e21e6155c3e73f095632480f563" prot="private" virt="non-virtual"><scope>MusicInputContext</scope><name>musicData</name></member>
+      <member refid="classMusicInputContext_1a3a684341715ba5a6db949843564d8bae" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>MusicInputContext</name></member>
+      <member refid="classBaseInputContext_1a0c3354b22b4f98a9f29f0b8caff28593" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a63d4e572f54a59ee4fb045e066eaa132" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>operator=</name></member>
+      <member refid="classBaseInputContext_1a5fdbf0449f1db374d967fd5fe9f6d429" prot="protected" virt="non-virtual"><scope>MusicInputContext</scope><name>parameters</name></member>
+      <member refid="classMusicInputContext_1a3ebc756c72a1f7978f00ff10141291c8" prot="public" virt="virtual"><scope>MusicInputContext</scope><name>Process</name></member>
+      <member refid="classBaseInputContext_1a31b87d03f2c28333e2b2a0bd746746d5" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>SetActive</name></member>
+      <member refid="classBaseInputContext_1a3e3c544f5658e379a71228680a05b700" prot="public" virt="non-virtual"><scope>MusicInputContext</scope><name>SetAppParameters</name></member>
+      <member refid="classBaseInputContext_1ab21b1683db227e049186d794909a5bc0" prot="public" virt="virtual"><scope>MusicInputContext</scope><name>~BaseInputContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
