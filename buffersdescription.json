@@ -179,8 +179,8 @@
                 "byte-size":256,
                 "regex-rule": "",
                 "optional": false
-            }
-			            {
+            },
+			{
                 "name":"input_settings",
                 "description": "Settings for input",
                 "token-type":"string",
@@ -384,8 +384,8 @@
                 "byte-size":256,
                 "regex-rule": "",
                 "optional": false
-            }
-			            {
+            },
+			{
                 "name":"input_settings",
                 "description": "Settings for input",
                 "token-type":"string",
