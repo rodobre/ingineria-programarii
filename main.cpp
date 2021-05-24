@@ -15,6 +15,7 @@
 #include <set>
 #include <cstdio>
 #include <string>
+#include <fstream>
 #include <stdexcept>
 #include "device.hpp"
 #include "mqtt_subscriber.hpp"
@@ -26,6 +27,53 @@ const std::set<std::string> InputType = {
     "WeatherInput",
     "BrightnessInput",
     "RandomInput"};
+
+nlohmann::json sendRequestToContext(nlohmann::json requestJson, AppContextPtr& ctx) {
+    
+    nlohmann::json response;
+    try
+    {
+        /* Validating all mandatory keys from the JSON */
+        if (requestJson.contains(INPUT_KEY) &&
+            requestJson.contains(INPUT_TYPE_KEY) &&
+            requestJson.contains(INPUT_SETTINGS_KEY))
+        {
+
+            /* Parsing the values from each key */
+            const std::string requestType = requestJson[INPUT_TYPE_KEY];
+            const nlohmann::json requestSettings = requestJson[INPUT_SETTINGS_KEY];
+
+            if (InputType.find(requestType) != InputType.end())
+            {
+                // Pushing json to the context instance
+                ctx->AddInput(buildContext(requestJson[INPUT_KEY], requestType));
+
+                response[OUTPUT_VALID_KEY] = requestJson[INPUT_KEY];
+            }
+            else
+            {
+                throw std::runtime_error(INVALID_REQUEST_BODY);
+            }
+        }
+    }
+    catch (std::runtime_error &error)
+    {
+        response[OUTPUT_ERROR_KEY] = BAD_REQUEST_JSON;
+    }
+    return response;
+}
+
+/**
+ * @brief Opens a stream and parses the json from the parameter file
+ */
+void parseInputFromFile(std::string fileName, AppContextPtr& ctx) 
+{
+    using json = nlohmann::json;
+    std::ifstream inputJson(fileName);
+    json requestJson;
+    inputJson >> requestJson;
+    sendRequestToContext(requestJson, ctx);
+}
 
 /**
  * @brief Main driver function of the program, runs an HTTP 
@@ -47,6 +95,9 @@ int main(void)
     MqttSubscriber mqttSubscriber;
     mqttSubscriber.StartProcessingInputs();
 
+    /* Default input stream */
+    parseInputFromFile("fileinput.json", ctx);
+
     /* Static folder handling */
     svr.set_mount_point("/static", "./static");
 
@@ -65,38 +116,8 @@ int main(void)
     });
 
     svr.Post("/iot", [&](const Request &req, Response &res) {
-        json response;
         json requestJson = json::parse(req.body);
-
-        try
-        {
-            /* Validating all mandatory keys from the JSON */
-            if (requestJson.contains(INPUT_KEY) &&
-                requestJson.contains(INPUT_TYPE_KEY) &&
-                requestJson.contains(INPUT_SETTINGS_KEY))
-            {
-
-                /* Parsing the values from each key */
-                const std::string requestType = requestJson[INPUT_TYPE_KEY];
-                const json requestSettings = requestJson[INPUT_SETTINGS_KEY];
-
-                if (InputType.find(requestType) != InputType.end())
-                {
-                    // Pushing json to the context instance
-                    ctx->AddInput(buildContext(requestJson[INPUT_KEY], requestType));
-
-                    response[OUTPUT_VALID_KEY] = requestJson[INPUT_KEY];
-                }
-                else
-                {
-                    throw std::runtime_error(INVALID_REQUEST_BODY);
-                }
-            }
-        }
-        catch (std::runtime_error &error)
-        {
-            response[OUTPUT_ERROR_KEY] = BAD_REQUEST_JSON;
-        }
+        json response = sendRequestToContext(requestJson, ctx);
 
         /* Return response to user */
         res.set_content(response.dump(), "text/json");
