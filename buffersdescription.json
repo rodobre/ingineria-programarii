@@ -1,0 +1,458 @@
+{
+	"device-name": "L.E.D.",
+    "device-type": "L.E.D.",
+    "buffers-count": 19,
+    "input-buffers":{
+        "1":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "UserManualInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'r'\:[0-255]\,'g'\:[0-255]\,'b'\:[0-255]\,'intensity'\:[0-255]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": false
+            }
+            ]
+        },
+
+        "2":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "DisplayInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'r'\:[0-255]\,'g'\:[0-255]\,'b'\:[0-255]\,'intensity'\:[0-255]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"3":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "MusicInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'frequency'\:[0-9]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"4":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "WeatherInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\{'temperature'\:(\-)*\b(1?[0-9]{1}|4[0-9]|4[0-9])\}",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"5":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "BrightnessInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'intensity'\:[0-9]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+        "6":{
+            "token-delimitators": ",", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "RandomInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "",
+                "optional": false
+            }
+			            {
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+        "7":{
+            "token-delimitators": "", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/start", 
+            "buffer-tokens":[]
+        },
+        "8":{
+            "token-delimitators": "", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/stop", 
+            "buffer-tokens":[]
+        },
+        "9":{
+            "token-delimitators": "", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080/previous-setting", 
+            "buffer-tokens":[]
+        },
+        "10":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "UserManualInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'r'\:[0-255]\,'g'\:[0-255]\,'b'\:[0-255]\,'intensity'\:[0-255]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+
+        "11":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "DisplayInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'r'\:[0-255]\,'g'\:[0-255]\,'b'\:[0-255]\,'intensity'\:[0-255]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"12":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "MusicInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'frequency'\:[0-9]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"13":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "WeatherInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\{'temperature'\:(\-)*\b(1?[0-9]{1}|4[0-9]|4[0-9])\}",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+		"14":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "BrightnessInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "\[(\{'intensity'\:[0-9]\}(\,)*)*\]",
+                "optional": false
+            },
+			{
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+        "15":{
+            "token-delimitators": ",", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883/iot", 
+            "buffer-tokens":[
+            {
+                "name":"input_type",
+                "description":"Input that describes the mode in which the L.E.D. system will work",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "RandomInput", 
+                "optional": false
+            },
+            {
+                "name":"input",
+                "description": "Parameters for the command chosen",
+                "token-type":"json",
+                "byte-size":256,
+                "regex-rule": "",
+                "optional": false
+            }
+			            {
+                "name":"input_settings",
+                "description": "Settings for input",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "*",
+                "optional": true
+            }
+            ]
+        },
+        "16":{
+            "token-delimitators": "", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883", 
+            "buffer-tokens":[ 
+            {
+                "name":"start",
+                "description":"Input that starts the L.E.D. system using the MQTT protocol",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "", 
+                "optional": false
+            }]
+        },
+        "17":{
+            "token-delimitators": "", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883", 
+            "buffer-tokens":[ 
+            {
+                "name":"stop",
+                "description":"Input that stops the L.E.D. system using the MQTT protocol",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "", 
+                "optional": false
+            }]
+        }
+    },
+    "output-buffers":{
+        "1":{
+            "token-delimitators": "", 
+            "protocol": "HTTP", 
+            "prefix": "localhost:8080", 
+            "buffer-tokens":[ 
+            {
+                "name":"message",
+                "description":"",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "^(new_input_added|top_input_popped)$", 
+                "optional": false
+            }]
+        },
+        "2":{
+            "token-delimitators": "", 
+            "protocol": "MQTT", 
+            "prefix": "localhost:1883", 
+            "buffer-tokens":[ 
+            {
+                "name":"message",
+                "description":"",
+                "token-type":"string",
+                "byte-size":256,
+                "regex-rule": "A functionat", 
+                "optional": false
+            }]
+        }
+    }
+       
+} 
