@@ -17,6 +17,7 @@ Aplicația noastră îmbunătățește calitatea vieții utilizatorului prin pri
 Demografica principală interesată de aplicație este compusă din persoane care petrec mult timp in fața calculatorului. Grupul țintă este compus din gameri, streameri si alți oameni care au nevoie de o atmosferă ambientală pe parcursul sesiunilor lungi la calculator. Ochii utilizatorilor pot suferi deteriorări in timp iar acest produs poate conserva starea lor prin filtrarea contrastelor de lumină in funcție de situație.
 
 ## Prioritizarea cerintelor
+
 Vom prezenta pe scurt Analiza Pareto, reprezentată de scorul pentru dificultate si scorul de valoare, pentru fiecare cerință:
 - setare culoare 10 dificultate, 100 valoare, 
 - setare in funcție de muzică 80 dificultate, 85 valoare
@@ -27,6 +28,8 @@ Vom prezenta pe scurt Analiza Pareto, reprezentată de scorul pentru dificultate
 - în funcție de vreme 50 dificultate, 65 valoare
 
 Conform Analizei Pareto aplicată pe impact și efort, am decis ca în proiect vom implementa cerințele în următoarea ordine: setarea culorii, setarea în funcție de imagine, setarea in funcție de muzică, setarea în funcție de ora zilei, setarea în funcție de vreme, setarea în funcție de luminozitate și setarea culorii în mod aleator.
+
+![Diagrama Pareto](img/Diagrama Pareto.JPG)
 
 
 ## Dependencies
