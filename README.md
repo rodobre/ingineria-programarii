@@ -1,5 +1,10 @@
-# L.E.D
+# L.E.D.++
 
+## Scopul aplicatiei
+
+Aplicația are ca scop iluminarea ambientală folosind diferite input-uri, cum ar fi vremea de afară, muzică, luminozitatea, vectori de pixeli, sau preferențele utilizatorului.
+
+Pentru a-si atinge scopurile, aplicația foloseste LED-uri “smart”. Utilitatea LED-urilor “smart” are impact in calitatea vieții utilizatorului, protejarea vederii acestuia ( prin crearea unui contrast cu lumina monitorului) si crearea unei atmosfere aparte in camera.
 
 
 
