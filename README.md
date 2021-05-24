@@ -12,7 +12,9 @@ Aplicația se diferențiază față de competitori datorită nivelului avansat d
 
 Aplicația noastră îmbunătățește calitatea vieții utilizatorului prin prisma faptului că aceasta folosește un sistem selectiv de prioritizare a input-urilor, întrucât sistemul nostru inteligent de LED-uri ia în calcul mai mulți factori (vremea, luminozitatea din cameră, ambientul sonor, etc.) pentru a maximiza confortul utilizatorilor.
 
+## Grupurile de interese
 
+Demografica principală interesată de aplicație este compusă din persoane care petrec mult timp in fața calculatorului. Grupul țintă este compus din gameri, streameri si alți oameni care au nevoie de o atmosferă ambientală pe parcursul sesiunilor lungi la calculator. Ochii utilizatorilor pot suferi deteriorări in timp iar acest produs poate conserva starea lor prin filtrarea contrastelor de lumină in funcție de situație.
 
 ## Dependencies
 
