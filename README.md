@@ -8,13 +8,26 @@ Pentru a-si atinge scopurile, aplicația foloseste LED-uri “smart”. Utilitat
 
 ## Aria de acoperire a aplicatiei
 
-Aplicația se diferențiază față de competitori datorită nivelului avansat de customizare și integrare pe care aceasta îl oferă. Astfel, cu sistemul nostru inteligent de LED-uri programabile, putem prelua input-uri din mai multe medii și prin mai multe device-uri IoT asociate. În integrarea actuală, admitem programarea secvențelor de LED-uri în mod manual de către utilizatori, precum și schimbarea acestora în funcție de vremea de afară, luminozitatea din cameră, input-uri de la device-uri IoT ce fac redare muzicală precum și preluarea matricei de pixeli direct dintr-un device ce rulează un sistem de operare popular (telefoane: Android, iPhone, Windows Phone, precum și sisteme de operare pentru PC-uri: Unix (MacOS, Linux, etc.), Windows).\ 
+Aplicația se diferențiază față de competitori datorită nivelului avansat de customizare și integrare pe care aceasta îl oferă. Astfel, cu sistemul nostru inteligent de LED-uri programabile, putem prelua input-uri din mai multe medii și prin mai multe device-uri IoT asociate. În integrarea actuală, admitem programarea secvențelor de LED-uri în mod manual de către utilizatori, precum și schimbarea acestora în funcție de vremea de afară, luminozitatea din cameră, input-uri de la device-uri IoT ce fac redare muzicală precum și preluarea matricei de pixeli direct dintr-un device ce rulează un sistem de operare popular (telefoane: Android, iPhone, Windows Phone, precum și sisteme de operare pentru PC-uri: Unix (MacOS, Linux, etc.), Windows). 
 
 Aplicația noastră îmbunătățește calitatea vieții utilizatorului prin prisma faptului că aceasta folosește un sistem selectiv de prioritizare a input-urilor, întrucât sistemul nostru inteligent de LED-uri ia în calcul mai mulți factori (vremea, luminozitatea din cameră, ambientul sonor, etc.) pentru a maximiza confortul utilizatorilor.
 
 ## Grupurile de interese
 
 Demografica principală interesată de aplicație este compusă din persoane care petrec mult timp in fața calculatorului. Grupul țintă este compus din gameri, streameri si alți oameni care au nevoie de o atmosferă ambientală pe parcursul sesiunilor lungi la calculator. Ochii utilizatorilor pot suferi deteriorări in timp iar acest produs poate conserva starea lor prin filtrarea contrastelor de lumină in funcție de situație.
+
+## Prioritizarea cerintelor
+Vom prezenta pe scurt Analiza Pareto, reprezentată de scorul pentru dificultate si scorul de valoare, pentru fiecare cerință:
+- setare culoare 10 dificultate, 100 valoare, 
+- setare in funcție de muzică 80 dificultate, 85 valoare
+- în funcție de imagine 80 dificultate, 90 valoare
+- în funcție de luminozitate 40 dificultate, 60 valoare
+- în funcție de ora zilei 30 dificultate, 70 valoare
+- culoare aleatoare 20 dificultate, 50 valoare
+- în funcție de vreme 50 dificultate, 65 valoare
+
+Conform Analizei Pareto aplicată pe impact și efort, am decis ca în proiect vom implementa cerințele în următoarea ordine: setarea culorii, setarea în funcție de imagine, setarea in funcție de muzică, setarea în funcție de ora zilei, setarea în funcție de vreme, setarea în funcție de luminozitate și setarea culorii în mod aleator.
+
 
 ## Dependencies
 
