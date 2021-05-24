@@ -1,3 +1,4 @@
+#define REQUEST_BODY_KEY "message"
 #define NEW_INPUT "new_input_added"
 #define POP_INPUT "top_input_popped"
 
@@ -128,10 +129,12 @@ public:
      */
     static void publishToThirdParty(std::string message) 
     {
-        std::cout << "getting to publish changes" << std::endl;
+        nlohmann::json body;
+        body[REQUEST_BODY_KEY] = message;
+        
+        std::cout << "Sending logs to third party..." << std::endl;
         httplib::Client cli("http://cpp-httplib-server.yhirose.repl.co");
-        auto res = cli.Post("/post", message, "text/plain");
-        std::cout << "after publishing changes" << std::endl;
+        auto res = cli.Post("/post", body.dump(), "text/plain");
     }
 
     /**
