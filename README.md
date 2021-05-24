@@ -29,7 +29,7 @@ Vom prezenta pe scurt Analiza Pareto, reprezentată de scorul pentru dificultate
 
 Conform Analizei Pareto aplicată pe impact și efort, am decis ca în proiect vom implementa cerințele în următoarea ordine: setarea culorii, setarea în funcție de imagine, setarea in funcție de muzică, setarea în funcție de ora zilei, setarea în funcție de vreme, setarea în funcție de luminozitate și setarea culorii în mod aleator.
 
-![Diagrama Pareto](img/Diagrama Pareto.JPG)
+![Diagrama Pareto](img/Diagrama_Pareto.JPG)
 
 
 ## Dependencies
