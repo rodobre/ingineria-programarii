@@ -4,7 +4,12 @@
 
 Aplicația are ca scop iluminarea ambientală folosind diferite input-uri, cum ar fi vremea de afară, muzică, luminozitatea, vectori de pixeli, sau preferențele utilizatorului.
 
-Pentru a-si atinge scopurile, aplicația foloseste LED-uri “smart”. Utilitatea LED-urilor “smart” are impact in calitatea vieții utilizatorului, protejarea vederii acestuia ( prin crearea unui contrast cu lumina monitorului) si crearea unei atmosfere aparte in camera.
+Pentru a-si atinge scopurile, aplicația foloseste LED-uri “smart”. Utilitatea LED-urilor “smart” are impact in calitatea vieții utilizatorului, protejarea vederii acestuia (prin crearea unui contrast cu lumina monitorului) si crearea unei atmosfere aparte in camera.
+
+## Aria de acoperire a aplicatiei
+
+Aplicația se diferențiază față de competitori datorită nivelului avansat de customizare și integrare pe care aceasta îl oferă. Astfel, cu sistemul nostru inteligent de LED-uri programabile, putem prelua input-uri din mai multe medii și prin mai multe device-uri IoT asociate. În integrarea actuală, admitem programarea secvențelor de LED-uri în mod manual de către utilizatori, precum și schimbarea acestora în funcție de vremea de afară, luminozitatea din cameră, input-uri de la device-uri IoT ce fac redare muzicală precum și preluarea matricei de pixeli direct dintr-un device ce rulează un sistem de operare popular (telefoane: Android, iPhone, Windows Phone, precum și sisteme de operare pentru PC-uri: Unix (MacOS, Linux, etc.), Windows).
+Aplicația noastră îmbunătățește calitatea vieții utilizatorului prin prisma faptului că aceasta folosește un sistem selectiv de prioritizare a input-urilor, întrucât sistemul nostru inteligent de LED-uri ia în calcul mai mulți factori (vremea, luminozitatea din cameră, ambientul sonor, etc.) pentru a maximiza confortul utilizatorilor.
 
 
 
